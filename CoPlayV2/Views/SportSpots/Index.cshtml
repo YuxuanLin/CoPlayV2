@@ -49,14 +49,14 @@
     $(document).ready(function () {
         Initialize();
     });
-
+    
     // Where all the fun happens
     function Initialize() {
 
         // Google has tweaked their interface somewhat - this tells the api to use that new UI
         google.maps.visualRefresh = true;
         var Melbourne = new google.maps.LatLng(-37.803723, 144.963919);
-
+        var foo = "fwef";
         // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
         var mapOptions = {
             zoom: 8,
@@ -101,6 +101,10 @@
 
         })
         google.maps.event.addListener(window, 'load', Initialize);
+    }
+    
+    function passlocation() {
+
     }
     </script>
     </section>

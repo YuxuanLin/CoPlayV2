@@ -22,6 +22,9 @@ namespace CoPlayV2.Controllers
             }
             var results = from s in db.SportandRecs select s;
             //Prepare searching string
+            // this.Request.QueryString[""];
+            // Request[]
+            //HttpUtility.ParseQueryString(querystring);
             if (!String.IsNullOrEmpty(model.Sports.SportsName.ToString()) && !String.IsNullOrEmpty(model.Suburbs.SuburbName.ToString()))
             {
                 if (model.Suburbs.SuburbName.ToString().Equals("CURRENT"))
