@@ -1,0 +1,107 @@
+﻿@model CoPlayV2.Models.SportSearchViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc" type="text/javascript"></script>
+
+<!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
+<style>
+    .infoDiv {
+        height: 200px;
+        width: 300px;
+        -webkit-user-select: none;
+        background-color: white;
+    }
+
+    #map_canvas img {
+        max-width: none;
+    }
+</style>
+
+<br />
+@using (Html.BeginForm("Search", "SportSpots", FormMethod.Post))
+{
+    <span>Choose a sport</span>
+    <div class="form-group">
+        @Html.EnumDropDownListFor(model => model.Sports.SportsName, 
+                                  new { @class = "form-control" })  
+       
+        <span>Choose a suburb</span>
+        @Html.EnumDropDownListFor(model => model.Suburbs.SuburbName, 
+                                  new { @class = "form-control" })
+        <br />
+        <input id="SubmitSuburb" type="submit" value="Search facilities by suburb" />      
+    </div>
+}
+@ViewBag.prompt
+<!-- This is the div that will contain the Google Map -->
+<div id="map_canvas" style="height: 550px;"></div>
+<br />
+
+<!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
+@section scripts {
+    <section class="scripts">
+    <script type="text/javascript">
+
+    <!-- This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded. -->
+    $(document).ready(function () {
+        Initialize();
+    });
+
+    // Where all the fun happens
+    function Initialize() {
+
+        // Google has tweaked their interface somewhat - this tells the api to use that new UI
+        google.maps.visualRefresh = true;
+        var Melbourne = new google.maps.LatLng(-37.803723, 144.963919);
+
+        // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+        var mapOptions = {
+            zoom: 8,
+            center: Melbourne,
+            mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // This makes the div with id "map_canvas" a google map
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        map.addListener('click', function () {
+            map.setZoom(8);
+            map.setCenter(marker.getPosition());
+        });
+
+        // a sample list of JSON encoded data of places to visit in Tunisia
+        // you can either make up a JSON list server side, or call it from a controller using JSONResult
+        var data = JSON.parse('@Html.Raw(ViewBag.result)');//get data from controller
+        console.log(data);
+        // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+        $.each(data, function (i, item) {
+            var marker = new google.maps.Marker({
+                'position': new google.maps.LatLng(item.Latitude, item.Longitude),//latitude, longitude
+                'map': map,
+                'title': item.FacilityName
+            });
+            console.log(item.GeoLong);
+            // Make the marker-pin blue!
+            //marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+            // put in some information about each json object - in this case, the opening hours.
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div class='infoDiv'> <h4>Facility Name: " + item.FacilityName + "</h4><h4>Location:"
+            + " " + item.StreetNo + " " + item.StreetName + " " + item.SuburbTown + " " + item.Postcode + "</h4></div>"
+            });
+
+            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+            marker.setMap(map);
+
+        })
+        google.maps.event.addListener(window, 'load', Initialize);
+    }
+    </script>
+    </section>
+}
