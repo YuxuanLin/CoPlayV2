@@ -176,6 +176,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608241513506_InitialCreate.cs" />
+    <Compile Include="Migrations\201608241513506_InitialCreate.Designer.cs">
+      <DependentUpon>201608241513506_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608260243343_FLnameBD.cs" />
+    <Compile Include="Migrations\201608260243343_FLnameBD.Designer.cs">
+      <DependentUpon>201608260243343_FLnameBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608260246546_FLnameBD2.cs" />
+    <Compile Include="Migrations\201608260246546_FLnameBD2.Designer.cs">
+      <DependentUpon>201608260246546_FLnameBD2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>CoPlayModel.tt</DependentUpon>
@@ -313,6 +326,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608241513506_InitialCreate.resx">
+      <DependentUpon>201608241513506_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608260243343_FLnameBD.resx">
+      <DependentUpon>201608260243343_FLnameBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608260246546_FLnameBD2.resx">
+      <DependentUpon>201608260246546_FLnameBD2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
