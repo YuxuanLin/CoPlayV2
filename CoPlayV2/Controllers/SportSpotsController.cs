@@ -13,7 +13,7 @@ namespace CoPlayV2.Controllers
     public class SportSpotsController : Controller
     {
         private CoPlayV2_dbEntities db = new CoPlayV2_dbEntities();
-        // GET: SportandRecs/Details/5
+        // GET: SportSpots/Search
         public ActionResult Search(SportSearchViewModels model)
         {
             if (model == null)
@@ -29,7 +29,8 @@ namespace CoPlayV2.Controllers
             {
                 if (model.Suburbs.SuburbName.ToString().Equals("CURRENT"))
                 {
-
+                    ViewBag.prompt = model.lng + ","+ model.lat;
+                    return View("Index");
                 }
                 else
                 {
@@ -40,23 +41,41 @@ namespace CoPlayV2.Controllers
                 }
             }
             //Prepare result
-            var preResult = new List<SportandRec>();
-            if (results.Count() == 0)
+
+            try
             {
-                ViewBag.prompt = "No result found";
+                var preResult = new List<SportandRec>();
+                if (results.Count() == 0)
+                {
+                    ViewBag.prompt = "No result found" + model.lng + "," + model.lat;
+                    return View("Index");
+                }
+                else
+                {
+                    foreach (SportandRec element in results)
+                    {
+                        preResult.Add(element);
+                    }
+                }
+                var jsonSerialiser = new JavaScriptSerializer();
+                var json = jsonSerialiser.Serialize(preResult);
+                ViewBag.result = json;
+                ViewBag.prompt = model.lng + "," + model.lat;
                 return View("Index");
             }
-            else
+            catch(System.ComponentModel.Win32Exception e)
             {
-                foreach (SportandRec element in results)
-                {
-                    preResult.Add(element);
-                }
+                ViewBag.prompt = "System.ComponentModel.Win32Exception error";
+                return View("Index");
             }
-            var jsonSerialiser = new JavaScriptSerializer();
-            var json = jsonSerialiser.Serialize(preResult);
-            ViewBag.result = json;
-            return View("Index");
+            catch(System.Data.Entity.Core.EntityException  e)
+            {
+                ViewBag.prompt = "System.Data.Entity.Core.EntityException error";
+                return View("Index");
+            }
+
+
+
         }
 
 

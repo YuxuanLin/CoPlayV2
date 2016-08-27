@@ -27,6 +27,15 @@ namespace CoPlayV2
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css"));
 
+            bundles.Add(new StyleBundle("~/bundles/uicss").Include(
+                "~/Content/UIcss/bootstrap.min.css",
+                "~/Content/UIcss/animate.css",
+                "~/Content/UIcss/font-awesome.min.css",
+                "~/Content/UIcss/owl.theme.css",
+                "~/Content/UIcss/owl.carousel.css",
+                "~/Content/UIcss/style.css"
+            ));
+
             bundles.Add(new ScriptBundle("~/bundles/search").Include(
                         "~/Content/sportspotssearch.css"));
 
