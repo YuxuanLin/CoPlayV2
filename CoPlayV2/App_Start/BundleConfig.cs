@@ -36,6 +36,18 @@ namespace CoPlayV2
                 "~/Content/UIcss/style.css"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
+               "~/Scripts/jquery.js",
+               "~/Scripts/bootstrap.min.js",
+               "~/Scripts/jquery.parallax.js",
+               "~/Scripts/jquery.nav.js",
+               "~/Scripts/jquery.backstretch.min.js",
+               "~/Scripts/owl.carousel.min.js",
+               "~/Scripts/smoothscroll.js",
+               "~/Scripts/wow.min.js",
+               "~/Scripts/custom.js"
+            ));
+
             bundles.Add(new ScriptBundle("~/bundles/search").Include(
                         "~/Content/sportspotssearch.css"));
 
