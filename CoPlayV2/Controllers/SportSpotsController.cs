@@ -12,7 +12,7 @@ namespace CoPlayV2.Controllers
 {
     public class SportSpotsController : Controller
     {
-        private CoPlayV2_dbEntities db = new CoPlayV2_dbEntities();
+        private CoPlayDBModel db = new CoPlayDBModel();
         // GET: SportSpots/Search
         public ActionResult Search(SportSearchViewModels model)
         {

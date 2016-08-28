@@ -189,44 +189,24 @@
     <Compile Include="Migrations\201608260246546_FLnameBD2.Designer.cs">
       <DependentUpon>201608260246546_FLnameBD2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608280751398_gender.cs" />
+    <Compile Include="Migrations\201608280751398_gender.Designer.cs">
+      <DependentUpon>201608280751398_gender.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>CoPlayModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>CoPlayModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>CoPlayModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>CoPlayModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CoPlayModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoPlayModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CoPlayModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoPlayModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CoPlayModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoPlayModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\CoPlayDBModel.cs" />
     <Compile Include="Models\EnumHelpers.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\SportandRec.cs">
-      <DependentUpon>CoPlayModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Rate.cs" />
+    <Compile Include="Models\SportandRec.cs" />
     <Compile Include="Models\SportSearchViewModel.cs" />
     <Compile Include="Models\SportTypeModel.cs" />
     <Compile Include="Models\SuburbModel.cs" />
+    <Compile Include="Models\UserSportPerformance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -271,25 +251,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\CoPlayModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CoPlayModel.edmx</DependentUpon>
-      <LastGenOutput>CoPlayModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\CoPlayModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CoPlayModel.edmx</DependentUpon>
-      <LastGenOutput>CoPlayModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\CoPlayModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CoPlayModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\CoPlayModel.edmx.diagram">
-      <DependentUpon>CoPlayModel.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -387,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608260246546_FLnameBD2.resx">
       <DependentUpon>201608260246546_FLnameBD2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608280751398_gender.resx">
+      <DependentUpon>201608280751398_gender.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

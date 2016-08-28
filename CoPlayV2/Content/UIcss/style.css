@@ -261,8 +261,8 @@ a {
    Overview  section              
 -----------------------------------------*/
 #overview {
-  padding-top: 14rem;
-  padding-bottom: 20rem;
+  padding-top: 4rem;/*14*/
+  padding-bottom: 10rem;
   position: relative;
 }
 

@@ -19,6 +19,10 @@ namespace CoPlayV2.Models
         [Required]
         public string Age { get; set; }
 
+        [Required]
+        public string Gender { get; set; }
+
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
