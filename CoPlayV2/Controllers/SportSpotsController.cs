@@ -82,7 +82,7 @@ namespace CoPlayV2.Controllers
         // GET: SportSpots
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
     }
 }

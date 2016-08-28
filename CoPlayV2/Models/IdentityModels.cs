@@ -16,7 +16,6 @@ namespace CoPlayV2.Models
         [Required]
         public string LastName { get; set; }
 
-
         [Required]
         public string Age { get; set; }
 
