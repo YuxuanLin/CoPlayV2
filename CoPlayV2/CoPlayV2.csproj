@@ -200,6 +200,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MatchIndexViewModels.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\SportandRec.cs" />

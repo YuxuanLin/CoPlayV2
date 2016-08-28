@@ -10,6 +10,22 @@ namespace CoPlayV2.Models
     {
         public SportTypesEnum SportsName { get; set; }
     }
+
+    public class SportLevelModel
+    {
+        public SportLevelEnum SportsLevel { get; set; }
+    }
+
+
+
+    public enum SportLevelEnum
+    {
+        Low,
+        Middle,
+        High
+    }
+
+
     public enum SportTypesEnum
     {
         Aerobics,

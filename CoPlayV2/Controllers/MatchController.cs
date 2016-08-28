@@ -14,5 +14,12 @@ namespace CoPlayV2.Controllers
         {
             return View();
         }
+
+        [Authorize]
+        public ActionResult Step1()
+        {
+            return View();
+        }
+
     }
 }

@@ -153,7 +153,8 @@ namespace CoPlayV2.Controllers
             {
                 //Create user instance, can be customized
                 var user = new ApplicationUser {
-                    UserName = model.Email,
+                    UserName = model.UserName,
+                    Gender = model.Gender,
                     Email = model.Email,
                     Age = model.Age,
                     FirstName = model.FirstName,
