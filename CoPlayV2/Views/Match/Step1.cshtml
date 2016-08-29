@@ -1,0 +1,38 @@
+﻿@model CoPlayV2.Models.MatchIndexViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ========================= SEARCH OPPONENT FLITER SECTION ============================== -->
+
+<div style="align-items:center; width:1000px; height: 700px; background-image:url(../../Content/../../Content/Images/wos_sportcollage.jpg)" >
+    <section id="search" class="parallax-section">
+        <div class="container">
+            <div class="row">
+                @using (Html.BeginForm("Step1", "Match", FormMethod.Post))
+                {
+                    <div class="col-md-12 col-sm-6" style="position:sticky;left: 450px;top:100px;">
+                        <h3> Sports: </h3>
+                        <h4>
+                            @Html.EnumDropDownListFor(model => model.Sports.SportsName, 
+                                                      new { @class = "form-control" }) 
+                        </h4>
+                        <h3> Skill level: </h3>
+                        <h4>
+                            @Html.EnumDropDownListFor(model => model.Level.SportsLevel, 
+                                                      new { @class = "form-control" })
+                        </h4>
+                        <div id="submit" style="left: 1000px;top:1000px;">
+
+                           <input id="SubmitSuburb" type="submit" value="Find" />  
+                        </div>
+                    </div>                        
+                }            
+            </div>
+        </div>
+    </section>
+</div>
+
+
+

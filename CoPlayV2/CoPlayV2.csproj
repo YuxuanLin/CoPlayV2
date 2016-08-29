@@ -239,6 +239,7 @@
     <Content Include="Content\Images\trainer-img2.png" />
     <Content Include="Content\Images\trainer-img3.jpg" />
     <Content Include="Content\Images\trainer-img4.jpeg" />
+    <Content Include="Content\Images\wos_sportcollage.jpg" />
     <Content Include="Content\Images\yuxuan.jpeg" />
     <Content Include="Content\sportspotssearch.css" />
     <Content Include="Content\UIcss\animate.css" />
@@ -327,7 +328,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SportSpots\Index.cshtml" />
-    <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Match\Step1.cshtml" />
+    <Content Include="Views\Match\Step2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

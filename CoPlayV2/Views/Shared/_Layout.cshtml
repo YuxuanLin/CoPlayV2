@@ -51,8 +51,9 @@
                 <li>@Html.ActionLink("Match", "Index", "Match", null, new { @class = "smoothScroll" })</li>
                 <li>@Html.ActionLink("Search stadium", "Index","SportSpots", null, new { @class = "smoothScroll" })</li>
                 <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "smoothScroll" })</li>
+                @Html.Partial("_LoginPartial")
             </ul>   
-            @Html.Partial("_LoginPartial")
+           
         </div>
     </div>
 </div>

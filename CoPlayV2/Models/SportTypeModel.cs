@@ -28,169 +28,169 @@ namespace CoPlayV2.Models
 
     public enum SportTypesEnum
     {
-        Aerobics,
+        //Aerobics,
 
-        [Display(Name = "AFL (Indoor)")]
-        AFLIndoor,
+        //[Display(Name = "AFL (Indoor)")]
+        //AFLIndoor,
 
-        Archery,
-        Athletics,
+        //Archery,
+        //Athletics,
 
-        [Display(Name = "Australian Rules Football")]
-        AustralianRulesFootball
-            ,
+        //[Display(Name = "Australian Rules Football")]
+        //AustralianRulesFootball
+        //    ,
         Badminton,
-        Baseball,
-        Basketball,
+        //Baseball,
+        //Basketball,
 
-        [Display(Name = "Beach Volleyball")]
-        BeachVolleyball,
+        //[Display(Name = "Beach Volleyball")]
+        //BeachVolleyball,
 
-        BMX,
-        Bocce,
+        //BMX,
+        //Bocce,
 
-        [Display(Name = "Body Building")]
-        BodyBuilding,
+        //[Display(Name = "Body Building")]
+        //BodyBuilding,
 
-        Boxing,
-        Callisthenics,
+        //Boxing,
+        //Callisthenics,
 
-        [Display(Name = "Canoe Polo")]
-        CanoePolo,
+        //[Display(Name = "Canoe Polo")]
+        //CanoePolo,
 
-        Canoeing,
+        //Canoeing,
 
-        [Display(Name = "Carpet Bowls")]
-        CarpetBowls,
+        //[Display(Name = "Carpet Bowls")]
+        //CarpetBowls,
 
-        Cricket,
+        //Cricket,
 
-        [Display(Name = "Cricket (Indoor)")]
-        CricketIndoor,
+        //[Display(Name = "Cricket (Indoor)")]
+        //CricketIndoor,
 
-        Croquet,
-        Cycling,
-        Dancing,
+        //Croquet,
+        //Cycling,
+        //Dancing,
 
-        [Display(Name = "Disk Golf")]
-        DiskGolf,
+        //[Display(Name = "Disk Golf")]
+        //DiskGolf,
 
-        Diving,
-        Equestrian,
-        Fencing,
+        //Diving,
+        //Equestrian,
+        //Fencing,
 
         [Display(Name = "Fitness / Gymnasium Workouts")]
         FitnessGymnasiumWorkouts,
 
-        [Display(Name = "Flying Disk")]
-        FlyingDisk,
+        //[Display(Name = "Flying Disk")]
+        //FlyingDisk,
 
-        [Display(Name = "Gaelic Football")]
-        GaelicFootball,
+        //[Display(Name = "Gaelic Football")]
+        //GaelicFootball,
 
-        [Display(Name = "Go Karting")]
-        GoKarting,
+        //[Display(Name = "Go Karting")]
+        //GoKarting,
 
-        Golf,
-        Gridiron,
-        Gymnastics,
-        Hockey,
+        //Golf,
+        //Gridiron,
+        //Gymnastics,
+        //Hockey,
 
-        [Display(Name = "Ice Hockey")]
-        IceHockey,
+        //[Display(Name = "Ice Hockey")]
+        //IceHockey,
 
-        [Display(Name = "Inline Hockey")]
-        InlineHockey,
+        //[Display(Name = "Inline Hockey")]
+        //InlineHockey,
 
-        [Display(Name = "Jet Skiing")]
-        JetSkiing,
+        //[Display(Name = "Jet Skiing")]
+        //JetSkiing,
 
-        Judo,
-        Karate,
-        Lacrosse,
+        //Judo,
+        //Karate,
+        //Lacrosse,
 
-        [Display(Name = "Lawn Bowls")]
-        LawnBowls,
+        //[Display(Name = "Lawn Bowls")]
+        //LawnBowls,
 
-        [Display(Name = "Martial Arts")]
-        MartialArts,
+        //[Display(Name = "Martial Arts")]
+        //MartialArts,
 
-        [Display(Name = "Modern Pentathlon")]
-        ModernPentathlon,
+        //[Display(Name = "Modern Pentathlon")]
+        //ModernPentathlon,
 
-        [Display(Name = "Motor Cycling")]
-        MotorCycling,
+        //[Display(Name = "Motor Cycling")]
+        //MotorCycling,
 
-        [Display(Name = "Motor SportsName")]
-        MotorSports,
+        //[Display(Name = "Motor SportsName")]
+        //MotorSports,
 
-        Netball,
+        //Netball,
 
-        [Display(Name = "Netball (Indoor)")]
-        NetballIndoor,
+        //[Display(Name = "Netball (Indoor)")]
+        //NetballIndoor,
 
-        [Display(Name = "Open Space")]
-        OpenSpace,
+        //[Display(Name = "Open Space")]
+        //OpenSpace,
 
-        Orienteering,
-        Polo,
-        Polocrosse,
+        //Orienteering,
+        //Polo,
+        //Polocrosse,
 
-        [Display(Name = "Power Boating")]
-        PowerBoating,
+        //[Display(Name = "Power Boating")]
+        //PowerBoating,
 
-        [Display(Name = "Rock Climbing / Abseiling (Indoor)")]
-        RockClimbingAbseilingIndoor,
+        //[Display(Name = "Rock Climbing / Abseiling (Indoor)")]
+        //RockClimbingAbseilingIndoor,
 
-        Rodeo,
+        //Rodeo,
 
-        [Display(Name = "Roller SportsName - Other")]
-        RollerSportsOther,
+        //[Display(Name = "Roller SportsName - Other")]
+        //RollerSportsOther,
 
-        Rowing,
+        //Rowing,
 
-        [Display(Name = "Rugby League")]
-        RugbyLeague,
+        //[Display(Name = "Rugby League")]
+        //RugbyLeague,
 
-        [Display(Name = "Rugby Union")]
-        RugbyUnion,
+        //[Display(Name = "Rugby Union")]
+        //RugbyUnion,
 
-        Sailing,
+        //Sailing,
 
-        [Display(Name = "Shooting SportsName")]
-        ShootingSports,
+        //[Display(Name = "Shooting SportsName")]
+        //ShootingSports,
 
-        Skating,
+        //Skating,
 
-        [Display(Name = "Snooker / Billiards / Pool")]
-        SnookerBilliardsPool,
+        //[Display(Name = "Snooker / Billiards / Pool")]
+        //SnookerBilliardsPool,
 
-        Soccer,
+        //Soccer,
 
-        [Display(Name = "Soccer (Indoor Soccer / Futsal)")]
-        SoccerIndoorSoccerFutsal,
+        //[Display(Name = "Soccer (Indoor Soccer / Futsal)")]
+        //SoccerIndoorSoccerFutsal,
 
-        Softball,
+        //Softball,
 
         [Display(Name = "Squash / Racquetball")]
         SquashRacquetball,
 
-        [Display(Name = "Surf Life Saving")]
-        SurfLifeSaving,
+        //[Display(Name = "Surf Life Saving")]
+        //SurfLifeSaving,
 
         Swimming,
 
         [Display(Name = "Table Tennis")]
         TableTennis,
 
-        [Display(Name = "Tae Kwon Do")]
-        TaeKwonDo,
+        //[Display(Name = "Tae Kwon Do")]
+        //TaeKwonDo,
 
-        [Display(Name = "Team Handball")]
-        TeamHandball,
+        //[Display(Name = "Team Handball")]
+        //TeamHandball,
 
-        [Display(Name = "Ten Pin Bowling")]
-        TenPinBowling,
+        //[Display(Name = "Ten Pin Bowling")]
+        //TenPinBowling,
 
         [Display(Name = "Tennis (Indoor)")]
         TennisIndoor,
@@ -198,22 +198,22 @@ namespace CoPlayV2.Models
         [Display(Name = "Tennis (Outdoor)")]
         TennisOutdoor,
 
-        [Display(Name = "Touch Football")]
-        TouchFootball,
+        //[Display(Name = "Touch Football")]
+        //TouchFootball,
 
-        [Display(Name = "Underwater Hockey")]
-        UnderwaterHockey,
+        //[Display(Name = "Underwater Hockey")]
+        //UnderwaterHockey,
 
-        Volleyball,
+        //Volleyball,
 
-        [Display(Name = "Water Polo")]
-        WaterPolo,
+        //[Display(Name = "Water Polo")]
+        //WaterPolo,
 
-        [Display(Name = "Water Skiing")]
-        WaterSkiing,
+        //[Display(Name = "Water Skiing")]
+        //WaterSkiing,
 
-        [Display(Name = "Wheelchair SportsName")]
-        WheelchairSports
+        //[Display(Name = "Wheelchair SportsName")]
+        //WheelchairSports
 
     }
 }
