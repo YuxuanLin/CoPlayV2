@@ -330,7 +330,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SportSpots\Index.cshtml" />
-    <Content Include="Views\Match\Step1.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
     <Content Include="Views\Match\Step2.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -5,4 +5,7 @@
 }
 
 <h2>Step2</h2>
-
+@foreach (var element in ViewBag.users)
+{
+    <p>@Html.DisplayFor(m => element)</p>
+}
