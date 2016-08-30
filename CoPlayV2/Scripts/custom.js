@@ -10,9 +10,8 @@ $(window).load(function(){
 -------------------------------------------*/
 $(document).ready(function() {
 
-  /* template navigation
-  -----------------------------------------------*/
- $('.main-navigation').onePageNav({
+  /* template navigation-----------------------------------------------*/
+    $('.main-navigation').onePageNav({
         scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
         scrollOffset: 75, //Height of Navigation Bar
         filter: ':not(.external)',
@@ -41,7 +40,8 @@ $(document).ready(function() {
    /* Hide mobile menu after clicking on a link
     -----------------------------------------------*/
     $('.navbar-collapse a').click(function(){
-        $(".navbar-collapse").collapse('hide');
+        $(".navbar-collapse collapse in").collapse('hide');
+        console.log("aaa");
     });
 
 
