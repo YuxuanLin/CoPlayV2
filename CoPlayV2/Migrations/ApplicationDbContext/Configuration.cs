@@ -1,4 +1,4 @@
-namespace CoPlayV2.Migrations
+namespace CoPlayV2.Migrations.ApplicationDbContext
 {
     using System;
     using System.Data.Entity;
@@ -9,9 +9,8 @@ namespace CoPlayV2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "CoPlayV2.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"Migrations\ApplicationDbContext";
         }
 
         protected override void Seed(CoPlayV2.Models.ApplicationDbContext context)

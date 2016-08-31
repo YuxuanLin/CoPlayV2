@@ -32,5 +32,9 @@ namespace CoPlayV2.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rate> Rates { get; set; }
+
+        [Required]
+        [StringLength(128)]
+        public string UserID { get; set; }
     }
 }

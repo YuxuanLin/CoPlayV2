@@ -14,17 +14,19 @@ namespace CoPlayV2.Controllers
 {
     public class MatchController : Controller
     {
-        private CoPlayDBModel db = new CoPlayDBModel();
+        //DBcontext to tables except usertables
+        private readonly CoPlayDBModel _db = new CoPlayDBModel();
 
+        //Create defualt userManager to connect to user table
         private ApplicationUserManager _userManager;
 
-        public ApplicationUserManager UserManager
+        private ApplicationUserManager UserManager
         {
             get
             {
                 return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
-            private set
+            set
             {
                 _userManager = value;
             }
@@ -38,7 +40,7 @@ namespace CoPlayV2.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Step2(MatchIndexViewModels model)
+        public async Task<ActionResult> FindOpponents(MatchIndexViewModels model)
         {
 
             //Check model null
@@ -48,26 +50,33 @@ namespace CoPlayV2.Controllers
             }
 
             //Search ids from usersportperformance table
-            var foundIDs = db.UserSportPerformances
+            var foundIDs = _db.UserSportPerformances
                 .Where(pf => pf.Sport.Equals(model.Sports.SportsName.ToString())
                 && pf.Level.Equals(model.Level.SportsLevel.ToString()))
                 ;
-            List<ApplicationUser> users = new List<ApplicationUser>();
+
+            //Prepare to get users from user table
+            var users = new List<MyUser>();
+            
+            //Get user from usertable and put it into "users" collection
             foreach (var x in foundIDs)
             {
                 var user = await UserManager.FindByIdAsync(x.UserID);
-                if (user != null)
-                {
-                    users.Add(user);
-                }
-               
+                if (user == null) continue;
+                //Add user
+                var myUser = new MyUser {user = user};
+                var events = _db.Events.Where(e => e.Sport.Equals(
+                    model.Sports.SportsName.ToString()));
+                users.Add(myUser);
+                //Get events from users
             }
-            ViewBag.users = users;
-            return View("Step2");
 
             
+            ViewBag.users = users;
+            return View("FindOrCreateEvents");
         }
 
 
+        
     }
 }

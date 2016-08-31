@@ -193,7 +193,25 @@
     <Compile Include="Migrations\201608280751398_gender.Designer.cs">
       <DependentUpon>201608280751398_gender.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310509033_AddEventStarterID.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310509033_AddEventStarterID.Designer.cs">
+      <DependentUpon>201608310509033_AddEventStarterID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310541397_AddEventStarterID1.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310541397_AddEventStarterID1.Designer.cs">
+      <DependentUpon>201608310541397_AddEventStarterID1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310544505_AddEventStarterID2.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310544505_AddEventStarterID2.Designer.cs">
+      <DependentUpon>201608310544505_AddEventStarterID2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310546380_AddEventStarterID3.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201608310546380_AddEventStarterID3.Designer.cs">
+      <DependentUpon>201608310546380_AddEventStarterID3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CoPlayDBModelDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CoPlayDBModel.cs" />
     <Compile Include="Models\EnumHelpers.cs" />
@@ -331,7 +349,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SportSpots\Index.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
-    <Content Include="Views\Match\Step2.cshtml" />
+    <Content Include="Views\Match\FindOrCreateEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -358,6 +376,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608280751398_gender.resx">
       <DependentUpon>201608280751398_gender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201608310509033_AddEventStarterID.resx">
+      <DependentUpon>201608310509033_AddEventStarterID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201608310541397_AddEventStarterID1.resx">
+      <DependentUpon>201608310541397_AddEventStarterID1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201608310544505_AddEventStarterID2.resx">
+      <DependentUpon>201608310544505_AddEventStarterID2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201608310546380_AddEventStarterID3.resx">
+      <DependentUpon>201608310546380_AddEventStarterID3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,20 +1,20 @@
-namespace CoPlayV2.Migrations
+namespace CoPlayV2.Migrations.CoPlayDBModelDbContext
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CoPlayV2.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CoPlayV2.Models.CoPlayDBModel>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "CoPlayV2.Models.ApplicationDbContext";
+            MigrationsDirectory = @"Migrations\CoPlayDBModelDbContext";
         }
 
-        protected override void Seed(CoPlayV2.Models.ApplicationDbContext context)
+        protected override void Seed(CoPlayV2.Models.CoPlayDBModel context)
         {
             //  This method will be called after migrating to the latest version.
 
