@@ -4,3 +4,10 @@
 .paddingTitle {
     padding-left: 4cm;
 }
+.paddingMobile {
+	    margin: auto;
+        width: 60%;
+}
+.form-inside {
+    padding-left: 15px;
+}

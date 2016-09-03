@@ -4,7 +4,6 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@ViewBag.Title - CoPlay</title>
-    <link rel="stylesheet" href="~/Content/UIcss/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/UIcss/animate.css">
     <link rel="stylesheet" href="~/Content/UIcss/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/UIcss/owl.theme.css">
@@ -14,9 +13,6 @@
     <link rel="stylesheet" href="~/Content/UIcss/style.css">
 
     <!-- Google Font -->
-
-    @Styles.Render("~/bundles/css")
-    @Scripts.Render("~/bundles/modernizr")
 
 
 </head>
@@ -86,6 +82,8 @@ FOOTER SECTION
 SCRIPTS
 ============================== -->
 @Scripts.Render("~/bundles/scripts")
+@Styles.Render("~/bundles/css")
+@Scripts.Render("~/bundles/modernizr")
 @RenderSection("scripts", required: false)
 </body>
 </html>
