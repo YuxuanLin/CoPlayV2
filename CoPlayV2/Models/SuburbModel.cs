@@ -16,7 +16,7 @@ namespace CoPlayV2.Models
     }
     public enum SuburbEnum
         {
-            CURRENT,
+            //CURRENT,
             ABBOTSFORD,
             ABERFELDIE,
 

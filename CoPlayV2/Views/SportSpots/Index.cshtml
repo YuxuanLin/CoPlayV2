@@ -34,7 +34,7 @@
         <br />
         @Html.HiddenFor(model => model.lng)
         @Html.HiddenFor(model => model.lat)
-        <input id="SubmitSuburb" type="submit" value="Search facilities by suburb" />      
+        <input id="SubmitSuburb" type="submit" value="Search facilities" />      
     </div>
 }
 @ViewBag.prompt
@@ -64,7 +64,7 @@
     
         // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
         var mapOptions = {
-            zoom: 8,
+            zoom: 13,
             center: Melbourne,
             mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
         };

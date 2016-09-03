@@ -53,6 +53,12 @@ namespace CoPlayV2
 
             bundles.Add(new ScriptBundle("~/bundles/aboutus").Include(
                         "~/Content/aboutus.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/MATCHcss").Include(
+                      "~/Content/UIcss/MATCHcss.css"));
+            bundles.Add(new StyleBundle("~/bundles/logincss").Include(
+                      "~/Content/UIcss/logincss.css"));
+            
         }
     }
 }

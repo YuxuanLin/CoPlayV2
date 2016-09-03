@@ -152,15 +152,17 @@ a {
     Navigation section              
 -----------------------------------------*/
 .navbar-default {
-    background: #ffffff;
+    background: #ff7171;
     border-bottom: 2px solid #f9f9f9;
     box-shadow: none;
-    margin: 0 !important;
+    margin: 0 !important;/**/
+    
+
 }
 
 .navbar-default .navbar-brand {
   color: #505050;
-  font-size: 36px;
+  font-size: 30px;/*36*/
   font-weight: bold;
   line-height: 50px;
   margin: 0;
@@ -238,10 +240,11 @@ a {
 }
 
 #home .btn {
-  background: #26253a;
-  border: none;
+  background: #ff7171;
+  border:thin;
+  border-color:lightgrey;
   border-radius: 0px;
-  color: #999;
+  color: #f0f0f0;
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 4px;
@@ -781,7 +784,7 @@ a {
     Testimonial section              
 -----------------------------------------*/
 #testimonial {
-    background: #ffffff;
+ /*  background: #ffffff;*/ 
     color: #26253a;
     padding-top: 8rem;
     padding-bottom: 8rem;
@@ -790,7 +793,8 @@ a {
 #testimonial .fa {
   font-size: 42px;
   padding-bottom: 14px;
-}
+}        <div class="container">
+
 
 #testimonial h3 {
   letter-spacing: 1px;
@@ -804,8 +808,9 @@ a {
 footer {
   background: #26253a;
   color: #ffffff;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
 }
 
 footer .col-md-5 {
@@ -1011,5 +1016,8 @@ footer .copyright-text {
   }
 
 }
+
+
+/*Search section*/
 
 

@@ -73,10 +73,14 @@ namespace CoPlayV2.Controllers
 
             
             ViewBag.users = users;
-            return View("FindOrCreateEvents");
+            return View("Result");
         }
 
+        [Authorize]
+        public ActionResult Result()
+        {
+            return View("Result");
+        }
 
-        
     }
 }

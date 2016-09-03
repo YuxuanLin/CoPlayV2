@@ -221,6 +221,7 @@
     <Compile Include="Models\MatchIndexViewModels.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Rate.cs" />
+    <Compile Include="Models\ResultViewModels.cs" />
     <Compile Include="Models\SportandRec.cs" />
     <Compile Include="Models\SportSearchViewModel.cs" />
     <Compile Include="Models\SportTypeModel.cs" />
@@ -243,6 +244,7 @@
     <Content Include="Content\Images\blog-thumb3.jpg" />
     <Content Include="Content\Images\comment1.jpg" />
     <Content Include="Content\Images\comment2.jpg" />
+    <Content Include="Content\Images\Coplay 1.png" />
     <Content Include="Content\Images\home-bg-slider-img1.jpg" />
     <Content Include="Content\Images\home-bg-slider-img2.jpg" />
     <Content Include="Content\Images\home-bg-slider-img3.jpg" />
@@ -263,6 +265,8 @@
     <Content Include="Content\UIcss\animate.css" />
     <Content Include="Content\UIcss\bootstrap.min.css" />
     <Content Include="Content\UIcss\font-awesome.min.css" />
+    <Content Include="Content\UIcss\logincss.css" />
+    <Content Include="Content\UIcss\MATCHcss.css" />
     <Content Include="Content\UIcss\owl.carousel.css" />
     <Content Include="Content\UIcss\owl.theme.css" />
     <Content Include="Content\UIcss\style.css" />
@@ -350,6 +354,7 @@
     <Content Include="Views\SportSpots\Index.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
     <Content Include="Views\Match\FindOrCreateEvents.cshtml" />
+    <Content Include="Views\Match\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
