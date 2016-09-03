@@ -42,10 +42,10 @@ namespace CoPlayV2.Controllers
         [Authorize]
         public async Task<ActionResult> FindOpponents(MatchIndexViewModels model)
         {
-
+            var resultModel = new ResultsViewModels();
             //Check model null
             if (model == null)
-            {
+            {   //--> return error
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
@@ -70,10 +70,11 @@ namespace CoPlayV2.Controllers
                 users.Add(myUser);
                 //Get events from users
             }
-
-            
-            ViewBag.users = users;
-            return View("Result");
+            resultModel.users = users;
+            resultModel.Level = model.Level;
+            resultModel.Sports = model.Sports;
+         
+            return View("Result",resultModel);
         }
 
         [Authorize]

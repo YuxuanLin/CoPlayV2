@@ -11,8 +11,10 @@
 
     public class ResultsViewModels
     {
-        public ApplicationUser user { get; set; }
-        public List<Event> MyEvent { get; set; }
+        public List<MyUser> users { get; set; }
+        public SportTypeModel Sports { get; set; }
+        public SportLevelModel Level { get; set; }
+
     }
 
 

@@ -47,7 +47,8 @@ namespace CoPlayV2.Controllers
                 var preResult = new List<SportandRec>();
                 if (results.Count() == 0)
                 {
-                    ViewBag.prompt = "No result found" + model.lng + "," + model.lat;
+                    //ViewBag.prompt = "No result found" + model.lng + "," + model.lat;
+                    ViewBag.prompt = "No result found";
                     return View("Index");
                 }
                 else
@@ -60,7 +61,7 @@ namespace CoPlayV2.Controllers
                 var jsonSerialiser = new JavaScriptSerializer();
                 var json = jsonSerialiser.Serialize(preResult);
                 ViewBag.result = json;
-                ViewBag.prompt = model.lng + "," + model.lat;
+                //ViewBag.prompt = model.lng + "," + model.lat;
                 return View("Index");
             }
             catch(System.ComponentModel.Win32Exception e)
@@ -73,9 +74,6 @@ namespace CoPlayV2.Controllers
                 ViewBag.prompt = "System.Data.Entity.Core.EntityException error";
                 return View("Index");
             }
-
-
-
         }
 
 

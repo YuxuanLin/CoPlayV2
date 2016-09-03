@@ -17,134 +17,53 @@
                 </div>
 
                 <div id="search fact">
-                    <p style="font-size:large;font-weight:bold; color:black"> You searched sports:  <!--Sport type-->    , Level:   <!--Skill level-->    sports player.</p>
+                    <p style="font-size: large; font-weight: bold; color: black">
+                        You searched sports: @Model.Sports.SportsName , 
+                        Level: @Model.Level.SportsLevel 
+                    </p>
                 </div>
                 <hr />
-
-                <!-------------foreach(var item in Model){-------------------->
-
                 <div class="wow fadeInUp col-md-12 col-sm-12">
-
-                    <div class="blog-thumb" style="background-color:white">
-                        <table style="width:1100px">
-
-                            <tr>
-                                <td style="width:200px; border-right: thin; border-right-color:lightgrey">
+                    @foreach (var user in Model.users){
+                        <div class="blog-thumb" style="background-color:white">
+                            <table style="width:1100px">
+                                <tr>
+                                    <td style="width:200px; border-right: thin; border-right-color:lightgrey">
                                     
-                                        <h3 class="blog-title" style="font-family:'Comic Sans MS'">Weng Pang</h3>
-                                        
-                                </td>
-                                <td>
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Age:</h4>
+                                        <h3 class="blog-title" style="font-family:'Comic Sans MS'">@user.user.LastName @user.user.FirstName</h3>     
+                                    </td>
+                                    <td>
+                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Age: @user.user.Age</h4>
 
                                     <td/>
                                     <td>
-
                                         <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Gender:</h4>
                                     </td>
-                                <td>
+                                    <td>
 
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Language:</h4>
-                                </td>
-                                <td>
+                                        <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Language:</h4>
+                                    </td>
+                                    <td>
 
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Nationality:</h4>
-                                </td>
-                                <td>
+                                        <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Nationality:</h4>
+                                    </td>
+                                    <td>
 
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Religion:</h4>
-                                </td>
-                                <td>
-                                    <a href="#">Send Email</a>
-                                </td>
+                                        <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Religion:</h4>
+                                    </td>
+                                    <td>
+                                        <a href="#">Send Email</a>
+                                    </td>
                                 
-                            </tr>
+                                </tr>
 
-                        </table>
+                            </table>
 
-                    </div>
+                        </div>            
                 
-                    <div class="blog-thumb" style="background-color:white">
-                        <table style="width:1100px">
-
-                            <tr>
-                                <td style="width:200px; border-right: thin; border-right-color:lightgrey">
-
-                                    <h3 class="blog-title" style="font-family:'Comic Sans MS'">Tony</h3>
-
-                                </td>
-                                <td>
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Age:</h4>
-
-                                <td />
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Gender:</h4>
-                                </td>
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Language:</h4>
-                                </td>
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Nationality:</h4>
-                                </td>
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Religion:</h4>
-                                </td>
-                                <td>
-                                    <a href="#">Send Email</a>
-                                </td>
-
-                            </tr>
-
-                        </table>
-
-                    </div>
-
-                    <div class="blog-thumb" style="background-color:white">
-                        <table style="width:1100px">
-
-                            <tr>
-                                <td style="width:200px; border-right: thin; border-right-color:lightgrey">
-
-                                    <h3 class="blog-title" style="font-family:'Comic Sans MS'">Gail</h3>
-
-                                </td>
-                                <td>
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Age:</h4>
-
-                                <td />
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Gender:</h4>
-                                </td>
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Language:</h4>
-                                </td>
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Nationality:</h4>
-                                </td>
-                                <td>
-
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Religion:</h4>
-                                </td>
-                                <td>
-                                    <a href="#">Send Email</a>
-                                </td>
-
-                            </tr>
-
-                        </table>
-
-                    </div>
-
-                <!-----------}------------------------->
+                    }
                 </div>
             </div>
         </div>
     </section>
-    </div>
+</div>

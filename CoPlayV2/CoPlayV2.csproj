@@ -249,6 +249,7 @@
     <Content Include="Content\Images\home-bg-slider-img2.jpg" />
     <Content Include="Content\Images\home-bg-slider-img3.jpg" />
     <Content Include="Content\Images\home-bg-slider-img4.jpg" />
+    <Content Include="Content\Images\icon.png" />
     <Content Include="Content\Images\lan.jpeg" />
     <Content Include="Content\Images\mengbo.jpeg" />
     <Content Include="Content\Images\newsletter-bg.jpg" />
@@ -269,6 +270,7 @@
     <Content Include="Content\UIcss\MATCHcss.css" />
     <Content Include="Content\UIcss\owl.carousel.css" />
     <Content Include="Content\UIcss\owl.theme.css" />
+    <Content Include="Content\UIcss\registercss.css" />
     <Content Include="Content\UIcss\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
