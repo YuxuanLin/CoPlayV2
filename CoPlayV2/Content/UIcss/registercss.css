@@ -5,3 +5,13 @@
 .paddingTitle {
     padding-left: 4cm;
 }
+
+.paddingMobile {
+	    margin: auto;
+        width: 60%;
+}
+
+.paddingBody {
+    margin: auto;
+    width: 60%;
+}
