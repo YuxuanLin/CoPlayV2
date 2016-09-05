@@ -102,7 +102,8 @@ namespace CoPlayV2.Models
 
         [Required]
         [Display(Name = "Age")]
-        public string Age { get; set; }
+        [Range(1, 200)]
+        public int Age { get; set; }
     }
 
     public class ResetPasswordViewModel

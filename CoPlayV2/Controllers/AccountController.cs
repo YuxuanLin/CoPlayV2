@@ -156,7 +156,7 @@ namespace CoPlayV2.Controllers
                     UserName = model.UserName,
                     Gender = model.Gender,
                     Email = model.Email,
-                    Age = model.Age,
+                    Age = model.Age.ToString(),
                     FirstName = model.FirstName,
                     LastName = model.LastName
                 };
