@@ -48,11 +48,23 @@ namespace CoPlayV2.Controllers
             {   //--> return error
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
+            var level = "";
             //Search ids from usersportperformance table
+            switch (model.Level.SportsLevel.ToString())
+            {
+                case "Low":
+                    level = "low";
+                    break;
+                case "Middle":
+                    level = "mid";
+                    break;
+                case "High":
+                    level = "high";
+                    break;
+            }
             var foundIDs = _db.UserSportPerformances
                 .Where(pf => pf.Sport.Equals(model.Sports.SportsName.ToString())
-                && pf.Level.Equals(model.Level.SportsLevel.ToString()))
+                && pf.Level.Equals(level))
                 ;
 
             //Prepare to get users from user table
