@@ -211,17 +211,21 @@
     <Compile Include="Migrations\CoPlayDBModelDbContext\201608310546380_AddEventStarterID3.Designer.cs">
       <DependentUpon>201608310546380_AddEventStarterID3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201609130625599_AddMessageTable.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201609130625599_AddMessageTable.Designer.cs">
+      <DependentUpon>201609130625599_AddMessageTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\CoPlayDBModelDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CoPlayDBModel.cs" />
     <Compile Include="Models\EnumHelpers.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InternalMessage.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MatchIndexViewModels.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Rate.cs" />
-    <Compile Include="Models\ResultViewModels.cs" />
     <Compile Include="Models\SportandRec.cs" />
     <Compile Include="Models\SportSearchViewModel.cs" />
     <Compile Include="Models\SportTypeModel.cs" />
@@ -268,6 +272,7 @@
     <Content Include="Content\UIcss\font-awesome.min.css" />
     <Content Include="Content\UIcss\logincss.css" />
     <Content Include="Content\UIcss\MATCHcss.css" />
+    <Content Include="Content\UIcss\matchIndex.css" />
     <Content Include="Content\UIcss\owl.carousel.css" />
     <Content Include="Content\UIcss\owl.theme.css" />
     <Content Include="Content\UIcss\registercss.css" />
@@ -292,6 +297,24 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\Raleway-Black.ttf" />
+    <Content Include="Content\fonts\Raleway-BlackItalic.ttf" />
+    <Content Include="Content\fonts\Raleway-Bold.ttf" />
+    <Content Include="Content\fonts\Raleway-BoldItalic.ttf" />
+    <Content Include="Content\fonts\Raleway-ExtraBold.ttf" />
+    <Content Include="Content\fonts\Raleway-ExtraBoldItalic.ttf" />
+    <Content Include="Content\fonts\Raleway-ExtraLight.ttf" />
+    <Content Include="Content\fonts\Raleway-ExtraLightItalic.ttf" />
+    <Content Include="Content\fonts\Raleway-Italic.ttf" />
+    <Content Include="Content\fonts\Raleway-Light.ttf" />
+    <Content Include="Content\fonts\Raleway-LightItalic.ttf" />
+    <Content Include="Content\fonts\Raleway-Medium.ttf" />
+    <Content Include="Content\fonts\Raleway-MediumItalic.ttf" />
+    <Content Include="Content\fonts\Raleway-Regular.ttf" />
+    <Content Include="Content\fonts\Raleway-SemiBold.ttf" />
+    <Content Include="Content\fonts\Raleway-SemiBoldItalic.ttf" />
+    <Content Include="Content\fonts\Raleway-Thin.ttf" />
+    <Content Include="Content\fonts\Raleway-ThinItalic.ttf" />
     <None Include="Properties\PublishProfiles\CoPlayV2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\custom.js" />
@@ -355,12 +378,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SportSpots\Index.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
-    <Content Include="Views\Match\FindOrCreateEvents.cshtml" />
+    <Content Include="Views\Match\MessageIndex.cshtml" />
     <Content Include="Views\Match\Result.cshtml" />
     <Content Include="Views\Account\LoginAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Match\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -396,6 +420,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201608310546380_AddEventStarterID3.resx">
       <DependentUpon>201608310546380_AddEventStarterID3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201609130625599_AddMessageTable.resx">
+      <DependentUpon>201609130625599_AddMessageTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -17,6 +17,8 @@ namespace CoPlayV2.Models
         public virtual DbSet<Rate> Rates { get; set; }
         public virtual DbSet<SportandRec> SportandRecs { get; set; }
         public virtual DbSet<UserSportPerformance> UserSportPerformances { get; set; }
+        public virtual DbSet<InternalMessage> InternalMessages { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

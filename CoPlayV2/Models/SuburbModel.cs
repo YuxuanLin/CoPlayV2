@@ -14,6 +14,26 @@ namespace CoPlayV2.Models
         public double lng { get; set; }
 
     }
+
+    public enum Campus
+    {
+        [Display(Name = "City of Monash (clayton)")]
+        CityOfMonash_clayton_,
+             
+        [Display(Name = "City of Glen Eira (Caulfield)")]
+        CityOfGlenEira_Caulfield_,
+
+        [Display(Name = "City of Melbourne (Parkville)")]
+        CityOfMelbourne_Parkville_,
+
+        [Display(Name = "Shire of Mornington Peninsula (Peninsula)")]
+        ShireOfMorningtonPeninsula_Peninsula_,
+
+        [Display(Name = "City of Casey (Berwick)")]
+        CityOfCasey_Berwick_
+
+    }
+
     public enum SuburbEnum
     {
         //CURRENT,

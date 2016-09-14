@@ -19,9 +19,30 @@ namespace CoPlayV2.Models
         public IList<AuthenticationDescription> OtherLogins { get; set; }
     }
 
+    public class ResultsViewModels
+    {
+        public List<MyUser> users { get; set; }
+        public SportTypeModel Sports { get; set; }
+        public SportLevelModel Level { get; set; }
+
+    }
+
     public class MyUser
     {
         public ApplicationUser user { get; set; }
         public List<Event> events { get; set; }
+    }
+
+    public class SendMessageViewModel
+    {
+        public MyUser sender { get; set; }
+        public MyUser receiver { get; set; }
+        public  string message { get; set; }
+    }
+
+    public class CreateMessage
+    {
+        public MyUser receiver { get; set; }
+        public string message { get; set; }
     }
 }

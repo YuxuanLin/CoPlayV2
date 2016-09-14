@@ -24,30 +24,39 @@ namespace CoPlayV2.Controllers
             }
             var results = from s in db.SportandRecs select s;
             //Prepare searching string
-            // this.Request.QueryString[""];
-            // Request[]
-            //HttpUtility.ParseQueryString(querystring);
-            if (!String.IsNullOrEmpty(model.Sports.SportsName.ToString()) && !String.IsNullOrEmpty(model.Suburbs.SuburbName.ToString()))
+            if (!String.IsNullOrEmpty(model.Sports.SportsName.ToString()) && !String.IsNullOrEmpty(model.Campus.ToString()))
             {
-                if (model.Suburbs.SuburbName.ToString().Equals("CURRENT"))
+                string[] suburbs = {};
+                switch (model.Campus.ToString())
                 {
-                    ViewBag.prompt = model.lng + ","+ model.lat;
-                    return View("Index");
+                    case "CityOfMonash_clayton_":
+                        suburbs = new string[] { "Ashwood", "Chadstone", "Clayton", "GlenWaverley", "MonashUniversity", "MountWaverley", "Mulgrave", "NottingHill", "Oakleigh", "OakleighEast", "OakleighSouth" };
+                        break;
+                    case "CityOfGlenEira_Caulfield_":
+                        suburbs = new string[] { "Bentleigh", "BentleighEast", "Caulfield", "CaulfieldEast", "CaulfieldNorth", "CaulfieldSouth", "Carnegie", "Elsternwick", "GlenHuntly", "McKinnon", "Murrumbeena", "Ormond" };
+                        break;
+                    case "CityOfMelbourne_Parkville_":
+                        suburbs = new string[] { "Berwick", "Clyde", "ClydeNorth", "Cranbourne", "CranbourneEast", "CranbourneNorth", "CranbourneSouth", "Doveton", "EndeavourHills", "Eumemmerring", "Hallam", "HamptonPark", "Harkaway", "JunctionVillage", "Lynbrook", "NarreWarren", "NarreWarrenNorth", "NarreWarrenSouth", "Pearcedale", "Tooradin", "Warneet" };
+                        break;
+                    case "ShireOfMorningtonPeninsula_Peninsula_":
+                        suburbs = new string[] { "Carlton", "Jolimont", "Flemington", "Kensington", "Melbourne", "NorthMelbourne", "PortMelbourne", "Parkville", "Southbank", "SouthYarra", "WestMelbourne" };
+                        break;
+                    case "CityOfCasey_Berwick_":
+                        suburbs = new string[] { "Balnarring", "BalnarringBeach", "Bittern", "Blairgowrie", "Boneo", "CapeSchanck", "CribPoint", "Dromana", "Flinders", "Hastings", "HMASCerberus", "MainRidge", "Merricks", "MerricksBeach", "Moorooduc", "Mornington", "MountEliza", "MountMartha", "PointLeo", "Portsea", "RedHill", "Rosebud", "RosebudWest", "Rye", "SafetyBeach", "Shoreham", "Somers", "Somerville", "Sorrento", "Tootgarook", "Tyabb" };
+                        break;
                 }
-                else
-                {
-                    string searchSportString = model.Sports.SportsName.ToDisplayName().ToUpper();
-                    string searchSuburbString = model.Suburbs.SuburbName.ToDisplayName().ToUpper();
-
-                    results = results.Where(s => s.SportsPlayed.ToUpper().Equals(searchSportString) && s.SuburbTown.ToUpper().Equals(searchSuburbString));
-                }
+                 
+                string searchSportString = model.Sports.SportsName.ToDisplayName().ToUpper();
+                    string searchCampusString = model.Campus.ToDisplayName().ToUpper();
+                    
+                    results = results.Where(s => s.SportsPlayed.ToUpper().Equals(searchSportString) && suburbs.Contains(s.SuburbTown));
             }
             //Prepare result
 
             try
             {
                 var preResult = new List<SportandRec>();
-                if (results.Count() == 0)
+                if (!results.Any())
                 {
                     //ViewBag.prompt = "No result found" + model.lng + "," + model.lat;
                     ViewBag.prompt = "No result found";

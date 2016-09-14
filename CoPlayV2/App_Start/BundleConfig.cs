@@ -60,6 +60,8 @@ namespace CoPlayV2
                       "~/Content/UIcss/logincss.css"));
             bundles.Add(new StyleBundle("~/bundles/registercss").Include(
                       "~/Content/UIcss/registercss.css"));
+            bundles.Add(new StyleBundle("~/bundles/matchIndexCss").Include(
+                      "~/Content/UIcss/matchIndex.css"));
         }
     }
 }

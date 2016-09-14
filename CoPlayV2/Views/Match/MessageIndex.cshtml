@@ -1,0 +1,15 @@
+﻿@model CoPlayV2.Models.CreateMessage
+@{
+    ViewBag.Title = "Opponents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm(actionName: "CreateMessage", controllerName: "Match", method: FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.DisplayFor(m => m.receiver.user.LastName)
+    
+    @Html.HiddenFor(model => model.receiver.user.Id)
+    @Html.TextAreaFor(m => m.message, new { @class = "form-control" })  
+    <input id="send" type="submit" value="Send" class="button button1" />
+}
