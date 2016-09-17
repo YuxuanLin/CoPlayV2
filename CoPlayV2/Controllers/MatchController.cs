@@ -97,40 +97,30 @@ namespace CoPlayV2.Controllers
         }
 
         [Authorize]
-        [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult CreateMessage([Bind(Include = "receiver,message")]CreateMessage message)
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateMessage(SendMessage myMessage)
         {
-            try
+
+            var internalMssage = new InternalMessage
             {
-                if (ModelState.IsValid)
-                {
-                    var myMessage = new InternalMessage();
-                    myMessage.Message = message.message;
-                    myMessage.ReceiverID = message.receiver.user.Id;
-                    myMessage.SenderID = User.Identity.GetUserId();
-                    _db.InternalMessages.Add(myMessage);
-                    _db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-            catch (DataException /* dex */)
-            {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
-            }
+                Message = myMessage.message,
+                ReceiverID = myMessage.receiver.user.Id,
+                SenderID = User.Identity.GetUserId(),
+                Status = 0
+            };
 
-
-            //get the sender
-
-            return View("MessageIndex");
+            _db.InternalMessages.Add(internalMssage);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+           
         }
 
         [Authorize]
-        public async Task<ActionResult> SendMessage( string id)
+        public async Task<ActionResult> SendMessage( string id )
         {
 
-            var result = new CreateMessage();
+            var result = new SendMessage();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -139,15 +129,13 @@ namespace CoPlayV2.Controllers
             var receiverUser = await UserManager.FindByIdAsync(id);
             if (receiverUser != null)
             {
-                var receiver = new MyUser {user = receiverUser };
-                result.receiver = receiver;
+                result.receiver = new MyUser { user = receiverUser };
             }
             else
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             
-
             return View("MessageIndex",result);
         }
         

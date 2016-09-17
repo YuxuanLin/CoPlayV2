@@ -40,7 +40,7 @@ namespace CoPlayV2.Models
         public  string message { get; set; }
     }
 
-    public class CreateMessage
+    public class SendMessage
     {
         public MyUser receiver { get; set; }
         public string message { get; set; }

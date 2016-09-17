@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -49,6 +50,38 @@ namespace CoPlayV2.Controllers
                 _userManager = value;
             }
         }
+
+
+        //DBcontext to tables except usertables
+        private readonly CoPlayDBModel _db = new CoPlayDBModel();
+
+        public async Task<ActionResult> MyIndex()
+        {
+            var resultModel = new MyManageIndexViewModels();
+            var userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
+            var myUser = new MyUser {user = user};
+            resultModel.currentUser = myUser;
+            
+            var messages = _db.InternalMessages.Where(s => s.SenderID.Equals(userId) || s.ReceiverID.Equals(userId));
+            resultModel.sentMessages = new List<InternalMessage>();
+            resultModel.receivedMessages = new List<InternalMessage>();
+            foreach (var msg in messages)
+            {
+                if (msg.ReceiverID.Equals(userId))
+                {
+                    resultModel.receivedMessages.Add(msg);
+                }
+                else if (msg.SenderID.Equals(userId))
+                {
+                    resultModel.sentMessages.Add(msg);
+                }
+
+            }
+            return View("MyManageIndex",resultModel);
+        }
+
+
 
         //
         // GET: /Manage/Index
@@ -332,6 +365,7 @@ namespace CoPlayV2.Controllers
 
             base.Dispose(disposing);
         }
+
 
 #region Helpers
         // Used for XSRF protection when adding external logins

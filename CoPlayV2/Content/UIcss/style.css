@@ -1,20 +1,24 @@
 
+
+html {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
+    min-height: 100%;
     background: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 300;
+    position: relative;
 }
-
-html,body {
-      width: 100%;
-     overflow-x: hidden;
-  }
-
-
 /*---------------------------------------
     Typorgraphy              
 -----------------------------------------*/
+
 h1,h2,h3,h4,h5,h6,
 blockquote {
   font-weight: 600;
@@ -58,7 +62,7 @@ h4 {
 }
 
 p {
-    color: #707070;
+    
     font-size: 20px;
     line-height: 25px;
     letter-spacing: 0.4px;
@@ -152,7 +156,7 @@ a {
     Navigation section              
 -----------------------------------------*/
 .navbar-default {
-    background: #ff7171;
+    background: #edebeb;
     border-bottom: 2px solid #f9f9f9;
     box-shadow: none;
     margin: 0 !important;/**/
@@ -793,7 +797,7 @@ a {
 #testimonial .fa {
   font-size: 42px;
   padding-bottom: 14px;
-}        <div class="container">
+}        
 
 
 #testimonial h3 {
@@ -811,6 +815,10 @@ footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
 }
 
 footer .col-md-5 {
@@ -827,7 +835,6 @@ footer h4 {
 }
 
 footer .copyright-text {
-  padding-top: 80px;
   text-align: center;
 }
 
@@ -1017,7 +1024,26 @@ footer .copyright-text {
 
 }
 
+.actionButton {
+    text-align: center;
+}
 
-/*Search section*/
+@font-face{
+    font-family: Raleway-ExtractBold;
+    src:url(../fonts/Raleway-ExtraBold.ttf);
+}
+@font-face{
+    font-family: Raleway-SmiBoldItalic;
+    src:url(../fonts/Raleway-SemiBoldItalic.ttf)
+}
+/*Index font*/
+.Raleway-extrabold{
+    font-family: Raleway-ExtractBold;
+    font-size: 100px;
+}
 
 
+.Raleway-semibolditalic{
+    font-family: Raleway-SmiBoldItalic;
+    font-size:50px;
+}

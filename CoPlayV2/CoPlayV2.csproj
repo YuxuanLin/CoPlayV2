@@ -224,6 +224,7 @@
     <Compile Include="Models\InternalMessage.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MatchIndexViewModels.cs" />
+    <Compile Include="Models\MyManageIndexViewModels.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\SportandRec.cs" />
@@ -249,13 +250,17 @@
     <Content Include="Content\Images\comment1.jpg" />
     <Content Include="Content\Images\comment2.jpg" />
     <Content Include="Content\Images\Coplay 1.png" />
+    <Content Include="Content\Images\facility-background.jpg" />
+    <Content Include="Content\Images\footer-img.jpg" />
     <Content Include="Content\Images\home-bg-slider-img1.jpg" />
     <Content Include="Content\Images\home-bg-slider-img2.jpg" />
     <Content Include="Content\Images\home-bg-slider-img3.jpg" />
     <Content Include="Content\Images\home-bg-slider-img4.jpg" />
+    <Content Include="Content\Images\home-bg-slider-img5.jpg" />
     <Content Include="Content\Images\icon.png" />
     <Content Include="Content\Images\lan.jpeg" />
     <Content Include="Content\Images\mengbo.jpeg" />
+    <Content Include="Content\Images\monashclub.jpg" />
     <Content Include="Content\Images\newsletter-bg.jpg" />
     <Content Include="Content\Images\overview-img.jpg" />
     <Content Include="Content\Images\price-bg.jpg" />
@@ -265,12 +270,21 @@
     <Content Include="Content\Images\trainer-img3.jpg" />
     <Content Include="Content\Images\trainer-img4.jpeg" />
     <Content Include="Content\Images\wos_sportcollage.jpg" />
+    <Content Include="Content\Images\wos_sportcollage2.jpg" />
     <Content Include="Content\Images\yuxuan.jpeg" />
     <Content Include="Content\sportspotssearch.css" />
     <Content Include="Content\UIcss\animate.css" />
     <Content Include="Content\UIcss\bootstrap.min.css" />
+    <Content Include="Content\UIcss\Clubcss.css" />
     <Content Include="Content\UIcss\font-awesome.min.css" />
+    <Content Include="Content\UIcss\jquery-ui.css" />
+    <Content Include="Content\UIcss\jquery-ui.min.css" />
+    <Content Include="Content\UIcss\jquery-ui.structure.css" />
+    <Content Include="Content\UIcss\jquery-ui.structure.min.css" />
+    <Content Include="Content\UIcss\jquery-ui.theme.css" />
+    <Content Include="Content\UIcss\jquery-ui.theme.min.css" />
     <Content Include="Content\UIcss\logincss.css" />
+    <Content Include="Content\UIcss\manageIndex.css" />
     <Content Include="Content\UIcss\MATCHcss.css" />
     <Content Include="Content\UIcss\matchIndex.css" />
     <Content Include="Content\UIcss\owl.carousel.css" />
@@ -325,6 +339,8 @@
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.backstretch.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.nav.js" />
@@ -354,7 +370,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -381,6 +396,8 @@
     <Content Include="Views\Match\MessageIndex.cshtml" />
     <Content Include="Views\Match\Result.cshtml" />
     <Content Include="Views\Account\LoginAll.cshtml" />
+    <Content Include="Views\Manage\MyManageIndex.cshtml" />
+    <Content Include="Views\Club\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,9 +23,14 @@ namespace CoPlayV2
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/Site.css"));
+            bundles.Add(new StyleBundle("~/bundles/layout/css").Include(
+                      "~/Content/bootstrap.css", // Bootstrap
+                      "~/Content/UIcss/animate.css",// Animation
+                      "~/Content/UIcss/font-awesome.min.css", //Font
+                      "~/Content/UIcss/owl.theme.css", // Theme
+                      "~/Content/UIcss/owl.carousel.css", // Theme
+                      "~/Content/UIcss/style.css"
+                        ));
 
             bundles.Add(new StyleBundle("~/bundles/uicss").Include(
                 "~/Content/UIcss/bootstrap.min.css",
@@ -62,6 +67,8 @@ namespace CoPlayV2
                       "~/Content/UIcss/registercss.css"));
             bundles.Add(new StyleBundle("~/bundles/matchIndexCss").Include(
                       "~/Content/UIcss/matchIndex.css"));
+            bundles.Add(new StyleBundle("~/bundles/ManageCss").Include(
+                      "~/Content/UIcss/manageIndex.css"));
         }
     }
 }
