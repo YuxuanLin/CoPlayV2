@@ -272,7 +272,7 @@
     <Content Include="Content\Images\wos_sportcollage.jpg" />
     <Content Include="Content\Images\wos_sportcollage2.jpg" />
     <Content Include="Content\Images\yuxuan.jpeg" />
-    <Content Include="Content\sportspotssearch.css" />
+    <Content Include="Content\UIcss\sportspotssearch.css" />
     <Content Include="Content\UIcss\animate.css" />
     <Content Include="Content\UIcss\bootstrap.min.css" />
     <Content Include="Content\UIcss\Clubcss.css" />
@@ -331,6 +331,7 @@
     <Content Include="Content\fonts\Raleway-ThinItalic.ttf" />
     <None Include="Properties\PublishProfiles\CoPlayV2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\Clubjs.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />

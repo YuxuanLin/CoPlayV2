@@ -814,7 +814,7 @@ footer {
   color: #ffffff;
   padding-top: 4rem;
   padding-bottom: 4rem;
-
+  position: relative;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -1030,12 +1030,13 @@ footer .copyright-text {
 
 @font-face{
     font-family: Raleway-ExtractBold;
-    src:url(../fonts/Raleway-ExtraBold.ttf);
+    src:url('/Content/fonts/Raleway-ExtraBold.ttf');
 }
 @font-face{
     font-family: Raleway-SmiBoldItalic;
-    src:url(../fonts/Raleway-SemiBoldItalic.ttf)
+    src: url('/Content/fonts/Raleway-SemiBoldItalic.ttf');
 }
+
 /*Index font*/
 .Raleway-extrabold{
     font-family: Raleway-ExtractBold;

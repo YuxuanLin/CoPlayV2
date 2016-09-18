@@ -6,114 +6,41 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc&callback=initMap" type="text/javascript"></script>
 
-<!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
-<style>
-    .infoDiv {
-        height: 200px;
-        width: 300px;
-        -webkit-user-select: none;
-        background-color: white;
-    }
+<div style=" align-self:center; background-image:url(../../Content/Images/facility-background.jpg); background-repeat:no-repeat;background-size:100% 100%" >
 
-    #map_canvas img {
-        max-width: none;
-    }
-
-    .button {
-        background-color: #115acd;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 22px;
-        font-weight: bold;
-        margin: 4px 2px;
-        cursor: pointer;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-    }
-
-    .button1:hover {
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-
-    .mainselection select {
-        border: 0;
-        color: black;
-        background: transparent;
-        font-size: 15px;
-        font-weight: bold;
-        padding: 2px 10px;
-        width: 280px;
-        *width: 280px;
-        *background: rgba(0,0,0,0.19);
-        -webkit-appearance: none;
-    }
-
-    .mainselection {
-        overflow: hidden;
-        width: 280px;
-        -moz-border-radius: 9px 9px 9px 9px;
-        -webkit-border-radius: 9px 9px 9px 9px;
-        border-radius: 9px 9px 9px 9px;
-        box-shadow: 1px 1px 11px #330033;
-        background: rgba(0,0,0,0.19) url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 240px center;
-    }
-
-    #search {
-        background: 50% 0 repeat-y fixed;
-        -webkit-background-size: cover;
-        background-size: cover;
-        background-position: center center;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center center;
-        -webkit-align-items: center center;
-        -ms-flex-align: center;
-        text-align: center;
-        align-items: center center;
-        height: 85vh;
-        align-content: center;
-        align: center;
-    }
-</style>
-
-<br />
-<div style="position: page center; align-self:center" >
-    <section id="search" class="parallax-section" align="center" style="height:270px">
-        <div class="container" align="center">
-            @using (Html.BeginForm(actionName: "Search", controllerName: "SportSpots", method: FormMethod.Post))
-            {
-                <h3>Choose a sport</h3>
-                <div class="form-group" align="center">
-                    <center>
-                        <div id="select1" class="mainselection">
-                            <!--Drop down list for all sport names-->
-                            @Html.EnumDropDownListFor(model => model.Sports.SportsName,
-                                new {@class = "form-contrcontrol"})
-                        </div>
-                    </center>
-
-                    <h3>Choose a campus</h3>
-                    <center>
-                        <div id="select2" class="mainselection">
-                            <!--Drop down list for all campus-->
-                            @Html.EnumDropDownListFor(model => model.Campus,
-                                new {@class = "form-contrcontrol"})
-                        </div>
-                    </center>
-                    <br />
-                    @Html.HiddenFor(model => model.lng)
-                    @Html.HiddenFor(model => model.lat)
-                    <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
-                </div>
-            }
+    <div class="container" align="center">
+        <div class="text-center">
+            <h2>Search Facility</h2>
+            <p>Let's Play Here!</p>
+            <hr />
         </div>
-    </section>
+            
+        @using (Html.BeginForm("Search", "SportSpots", FormMethod.Post))
+        {
+            <h3>Choose a sport</h3>
+            <div class="form-group" align="center">
+                <center>
+                    <div id="select1" class="mainselection">
+                        @Html.EnumDropDownListFor(model => model.Sports.SportsName,
+                            new { @class = "form-contrcontrol" })
+                    </div>
+                </center>
+
+                <h3>Choose a suburb</h3>
+                <center>
+                    <div id="select2" class="mainselection">
+                        @Html.EnumDropDownListFor(model => model.Suburbs.SuburbName,
+                            new { @class = "form-contrcontrol" })
+                    </div>
+                </center>
+                <br />
+                @Html.HiddenFor(model => model.lng)
+                @Html.HiddenFor(model => model.lat)
+                <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
+            </div>
+        }
+    </div>
+
     <center><strong style="color: crimson;font-size: 20px">@ViewBag.prompt</strong></center>
 
     <!-- This is the div that will contain the Google Map -->
@@ -134,7 +61,6 @@
                     Initialize();
                 });
 
-            
                 // Where all the fun happens
                 function Initialize() {
 
@@ -144,7 +70,7 @@
 
                     // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
                     var mapOptions = {
-                        zoom: 11,
+                        zoom: 13,
                         center: Melbourne,
                         mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
                     };
@@ -156,7 +82,9 @@
                         map.setCenter(marker.getPosition());
                     });
 
+                    // a sample list of JSON encoded data of places to visit in Tunisia
                     // you can either make up a JSON list server side, or call it from a controller using JSONResult
+
 
                     try {
                         var data = JSON.parse('@Html.Raw(ViewBag.result)');//get data from controller
@@ -164,7 +92,7 @@
                     catch (err) {
                         console.log("Data not completed");
                     }
-
+                    console.log(data);
                     // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
                     $.each(data, function (i, item) {
                         var marker = new google.maps.Marker({
@@ -176,35 +104,16 @@
                         //marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
 
                         // put in some information about each json object - in this case, the opening hours.
-
-                        var facilityName = (item.FacilityName != null) ? item.FacilityName : "No name yet." ;
-                        var location  =  ((item.StreetNo != null) ? item.StreetNo : "" ) + " " + 
-                                ((item.StreetName != null) ? item.StreetName : "") + " " +
-                                ((item.StreetType != null) ? item.StreetType : "") + " " + 
-                                ((item.SuburbTown != null) ? item.SuburbTown : "") + " " + 
-                                ((item.Postcode != null) ? item.Postcode : "");        
-
-                        var fieldType =  ((item.fieldType != null) ? item.fieldType : "No record") ;
-                        var prefix = "<div class='infoDiv'>";
-                        var postfix = "</h4></div>";
-
-                        var info = prefix + 
-                                " <h4>Facility Name: " +  facilityName + 
-                                "</h4><h4>Location: " + location +
-                                "</h4><h4>Field type: " + fieldType +
-                                postfix;
-
                         var infowindow = new google.maps.InfoWindow({
-                            content: info
+                            content: "<div class='infoDiv'> <h4>Facility Name: " + item.FacilityName + "</h4><h4>Location:"
+                                + " " + item.StreetNo + " " + item.StreetName + " " + item.SuburbTown + " " + item.Postcode + "</h4></div>"
                         });
 
                         // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
                         google.maps.event.addListener(marker, 'click', function () {
-                           
                             infowindow.open(map, marker);
                         });
                         marker.setMap(map);
-
                     })
                 }
             </script>
@@ -236,13 +145,14 @@
                 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                     infoWindow.setPosition(pos);
                     infoWindow.setContent(browserHasGeolocation ?
-                                          'Error: The Geolocation service failed.' :
-                                          'Error: Your browser doesn\'t support geolocation.');
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
                 }
             </script>
             <!--<script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc&callback=initMap">
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc&callback=initMap">
             </script>-->
         </section>
     }
 </div>
+@Styles.Render("~/bundles/search")

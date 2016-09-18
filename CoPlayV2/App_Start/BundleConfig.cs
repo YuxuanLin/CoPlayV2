@@ -26,11 +26,11 @@ namespace CoPlayV2
             bundles.Add(new StyleBundle("~/bundles/layout/css").Include(
                       "~/Content/bootstrap.css", // Bootstrap
                       "~/Content/UIcss/animate.css",// Animation
-                      "~/Content/UIcss/font-awesome.min.css", //Font
                       "~/Content/UIcss/owl.theme.css", // Theme
                       "~/Content/UIcss/owl.carousel.css", // Theme
                       "~/Content/UIcss/style.css"
-                        ));
+                        ).Include("~/Content/UIcss/font-awesome.min.css", new CssRewriteUrlTransform())
+                        );
 
             bundles.Add(new StyleBundle("~/bundles/uicss").Include(
                 "~/Content/UIcss/bootstrap.min.css",
@@ -53,20 +53,24 @@ namespace CoPlayV2
                "~/Scripts/custom.js"
             ));
 
-            bundles.Add(new ScriptBundle("~/bundles/search").Include(
-                        "~/Content/sportspotssearch.css"));
+            bundles.Add(new StyleBundle("~/bundles/search").Include(
+                        "~/Content/UIcss/sportspotssearch.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/aboutus").Include(
                         "~/Content/aboutus.css"));
 
             bundles.Add(new StyleBundle("~/bundles/MATCHcss").Include(
                       "~/Content/UIcss/MATCHcss.css"));
+
             bundles.Add(new StyleBundle("~/bundles/logincss").Include(
                       "~/Content/UIcss/logincss.css"));
+
             bundles.Add(new StyleBundle("~/bundles/registercss").Include(
                       "~/Content/UIcss/registercss.css"));
+
             bundles.Add(new StyleBundle("~/bundles/matchIndexCss").Include(
                       "~/Content/UIcss/matchIndex.css"));
+
             bundles.Add(new StyleBundle("~/bundles/ManageCss").Include(
                       "~/Content/UIcss/manageIndex.css"));
         }

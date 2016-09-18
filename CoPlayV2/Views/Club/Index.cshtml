@@ -3,10 +3,9 @@
     ViewBag.Title = "Club";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Styles.Render("~/bundles/CLUBcss")
-@Styles.Render("~/bundles/jqueryUIcss")
 
-<body style="background-image:url(../../Content/Images/monashclub.jpg); background-repeat:no-repeat;background-size:100% 100%; height:1000px">
+
+<div style="background-image:url(../../Content/Images/monashclub.jpg); background-repeat:no-repeat;background-size:100% 100%; height:1000px">
     <div class="text-center">
         <h2>Join Club</h2>
         <p>Clubs Clubs Clubs!</p>
@@ -20,20 +19,20 @@
         <h3 class="Raleway-Medium" style="font-size:20px">Monash Caulfield Badminton Club</h3>
         <div>
             <div>
-            <table>
-                <tr>
-                    <td>
-                        <b>Address:</b> 2 Princes Ave, Caulfield East VIC 3145 &nbsp;&nbsp;
-                    </td>
-                    <td>
-                        <b>Contact:</b> caulfiled.badminton.club@gmail.com &nbsp;&nbsp; 
-                    </td>
-                    <td >
-                        <a href="https://www.facebook.com/groups/25452009767/" style="color:cornflowerblue"><b>Join Us</b></a>
-                    </td>
-                </tr>
-            </table>
-             </div> 
+                <table>
+                    <tr>
+                        <td>
+                            <b>Address:</b> 2 Princes Ave, Caulfield East VIC 3145 &nbsp;&nbsp;
+                        </td>
+                        <td>
+                            <b>Contact:</b> caulfiled.badminton.club@gmail.com &nbsp;&nbsp; 
+                        </td>
+                        <td >
+                            <a href="https://www.facebook.com/groups/25452009767/" style="color:cornflowerblue"><b>Join Us</b></a>
+                        </td>
+                    </tr>
+                </table>
+            </div> 
             <hr />
             <div>
                 "We are having a trial session on week 1, so badminton sessions officially start on week 2! But members can definitely still come on week 1 because it's only a trial session for new comers or potential members (:
@@ -51,10 +50,11 @@
 
     <div>
       
-                <button onclick="" class="btn btn-info Raleway-Medium" style="font-size:25px">Victoria Clubs</button>
+        <button onclick="" class="btn btn-info Raleway-Medium" style="font-size:25px">Victoria Clubs</button>
      
         <button onclick="" class="btn btn-info Raleway-Medium" style="font-size:25px;float:right">Back to search</button>
     </div>
+</div>
 
-    @Scripts.Render("~/bundles/CLUBscripts")
-</body>
+@Scripts.Render("~/bundles/CLUBscripts")
+@Styles.Render("~/bundles/CLUBcss")
