@@ -33,6 +33,12 @@ namespace CoPlayV2.Models
         }
     }
 
+    public enum Gender
+    {
+        Male,
+        Female
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()

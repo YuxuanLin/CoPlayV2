@@ -1,4 +1,5 @@
-﻿@model CoPlayV2.Models.MyManageIndexViewModels
+﻿@using CoPlayV2.Models
+@model CoPlayV2.Models.MyManageIndexViewModels
 
 @{
     ViewBag.Title = "Manage Index";
@@ -46,36 +47,47 @@
                     <form>
                         <!--email-->
                         <div class="form-group">
-                            <label for="InputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="InputEmail1" placeholder="Email">
+                            @Html.LabelFor(m => m.currentUser.user.Email)
+                            @Html.TextBoxFor(model => model.currentUser.user.Email, new { @class="form-control", placeholder="Email" })
                         </div>
                         <!--username-->
                         <div class="form-group">
-                            <label for="InputUsername">Username</label>
-                            <input type="email" class="form-control" id="InputUsername" placeholder="Username">
+                            @Html.LabelFor(m => m.currentUser.user.UserName)
+                            @Html.TextBoxFor(model => model.currentUser.user.UserName, new {  @class="form-control", placeholder="Username" })
+
                         </div>
                         <!--Lastname-->
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Lastname</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Lastname">
+                            @Html.LabelFor(m => m.currentUser.user.LastName)
+                            @Html.TextBoxFor(model => model.currentUser.user.UserName, new {  @class="form-control", placeholder="Lastname" })
+
                         </div>
                         <!--Firstname-->
                         <div class="form-group">
-                            <label for="firstname">Firstname</label>
-                            <input type="password" class="form-control" id="firstname" placeholder="Firstname">
+                            @Html.LabelFor(m => m.currentUser.user.FirstName)
+                            @Html.TextBoxFor(model => model.currentUser.user.FirstName, htmlAttributes: new {  @class="form-control", placeholder="FirstName" })
+
                         </div>
                         <!--Gender-->
                         <div class="form-group">      
                             <label for="menu1">Gender</label>   
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+                            @Html.DropDownListFor(m => m.currentUser.user.Gender,     
+                                        selectList: new SelectList(items: Enum.GetValues(typeof(Gender))), 
+                                        optionLabel: "Select Gender",
+                                        htmlAttributes: new {  @class="dropdown"}
+                                            )
+                            
+                            
+
+                            <!--<div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Gender
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Female</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">None</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Other</a></li>
                                 </ul>
-                            </div>
+                            </div>-->
                         </div>
                         
                         <!--DOB-->
@@ -88,7 +100,7 @@
                                 <input type="checkbox"> Check me out
                             </label>
                         </div>-->
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-success">Update profile</button>
                     </form>
                 </div>
             </div>
