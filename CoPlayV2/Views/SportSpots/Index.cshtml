@@ -15,30 +15,31 @@
             <hr />
         </div>
             
-        @using (Html.BeginForm(actionName: "Search", controllerName: "SportSpots", method: FormMethod.Post))
+        @using (Html.BeginForm( "Search",  "SportSpots",  FormMethod.Post,new{ @class="form-inline"}))
             {
-                <h3>Choose a sport</h3>
-                <div class="form-group" align="center">
-                    <center>
-                        <div id="select1" class="mainselection">
-                            <!--Drop down list for all sport names-->
+          
+                    <div class="form-group">         
+                        <!--Drop down list for all sport names-->
+                        <div id="select1" class="mainselection">   
+                            @Html.Label("Choose a sport") 
                             @Html.EnumDropDownListFor(model => model.Sports.SportsName,
-                                new {@class = "form-contrcontrol"})
-                        </div>
-                    </center>
-
-                    <h3>Choose a campus</h3>
-                    <center>
+                                    new {@class = "form-control"})
+                         </div>
+                    </div>
+                    <div class="form-group">
+                        <!--<h3>Choose a campus</h3>-->
                         <div id="select2" class="mainselection">
                             <!--Drop down list for all campus-->
+                              @Html.Label("Choose a campus") 
                             @Html.EnumDropDownListFor(model => model.Campus,
-                                new {@class = "form-contrcontrol"})
+                                new {@class = "form-control"})
                         </div>
-                    </center>
-                    <br />
-                    @Html.HiddenFor(model => model.lng)
-                    @Html.HiddenFor(model => model.lat)
-                    <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
+
+                        @Html.HiddenFor(model => model.lng)
+                        @Html.HiddenFor(model => model.lat)    
+                    </div>
+                <div class="form-group">
+                        <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
                 </div>
             }
     </div>
