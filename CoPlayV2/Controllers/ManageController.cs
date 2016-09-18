@@ -81,7 +81,12 @@ namespace CoPlayV2.Controllers
             return View("MyManageIndex",resultModel);
         }
 
+        public ActionResult UpdateUserInfoTask(MyManageIndexViewModels model)
+        {
 
+
+            return View();
+        }
 
         //
         // GET: /Manage/Index

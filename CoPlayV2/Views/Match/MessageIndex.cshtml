@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm(actionName: "CreateMessage", controllerName: "Match", method: FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.DisplayFor(m => m.receiver.user.LastName)
-    @Html.HiddenFor(model => model.receiver.user.Id)
-    @Html.TextAreaFor(m => m.message, new { @class = "form-control" })  
-    <input id="send" type="submit" value="Send" class="button button1" />
-}
+
+<div class="container">
+    @using (Html.BeginForm(actionName: "CreateMessage", controllerName: "Match", method: FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.DisplayFor(m => m.receiver.user.LastName)
+        @Html.HiddenFor(model => model.receiver.user.Id)
+        @Html.TextAreaFor(m => m.message, new { @class = "form-control" })  
+        <input id="send" type="submit" value="Send" class="btn btn-primary" />
+    }
+</div>

@@ -1,4 +1,5 @@
-﻿@using CoPlayV2.Models
+﻿@using CoPlayV2.Extentions
+@using CoPlayV2.Models
 @model CoPlayV2.Models.MyManageIndexViewModels
 
 @{
@@ -43,65 +44,50 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Personal setting</div>
                 <div class="panel-body">
-                 
-                    <form>
-                        <!--email-->
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.currentUser.user.Email)
-                            @Html.TextBoxFor(model => model.currentUser.user.Email, new { @class="form-control", placeholder="Email" })
-                        </div>
-                        <!--username-->
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.currentUser.user.UserName)
-                            @Html.TextBoxFor(model => model.currentUser.user.UserName, new {  @class="form-control", placeholder="Username" })
+                 @using (Html.BeginForm(actionName: "UpdateUserInfoTask", controllerName: "Manage", method: FormMethod.Post))
+                 {
+                     
+                         <!--email-->
+                         <div class="form-group">
+                             @Html.LabelFor(m => m.currentUser.user.Email)
+                             @Html.TextBoxFor(model => model.currentUser.user.Email, new {@class = "form-control", placeholder = "Email"})
+                         </div>
+                         <!--username-->
+                         <div class="form-group">
+                             @Html.LabelFor(m => m.currentUser.user.UserName)
+                             @Html.TextBoxFor(model => model.currentUser.user.UserName, new {@class = "form-control", placeholder = "Username"})
+                         </div>
+                         <!--Lastname-->
+                         <div class="form-group">
+                             @Html.LabelFor(m => m.currentUser.user.LastName)
+                             @Html.TextBoxFor(model => model.currentUser.user.UserName, new {@class = "form-control", placeholder = "Lastname"})
 
-                        </div>
-                        <!--Lastname-->
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.currentUser.user.LastName)
-                            @Html.TextBoxFor(model => model.currentUser.user.UserName, new {  @class="form-control", placeholder="Lastname" })
+                         </div>
+                         <!--Firstname-->
+                         <div class="form-group">
+                             @Html.LabelFor(m => m.currentUser.user.FirstName)
+                             @Html.TextBoxFor(model => model.currentUser.user.FirstName, htmlAttributes: new {@class = "form-control", placeholder = "FirstName"})
 
-                        </div>
-                        <!--Firstname-->
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.currentUser.user.FirstName)
-                            @Html.TextBoxFor(model => model.currentUser.user.FirstName, htmlAttributes: new {  @class="form-control", placeholder="FirstName" })
+                         </div>
+                         <!--Gender-->
+                         <div class="form-group">
+                             <!--<div class="col-xs-4"> -->
+                             @Html.LabelFor(m => m.currentUser.user.Gender)
+                             @Html.DropDownListFor(m => m.currentUser.user.Gender,
+                                 selectList: new SelectList(items: Enum.GetValues(typeof(Gender))),
+                                 optionLabel: "Select Gender",
+                                 htmlAttributes: new {@class = "form-control"})
+                             <!--</div>-->
+                         </div>
+                         <!--DOB-->
+                         <div class="form-group">
+                             @Html.LabelFor(m => m.currentUser.user.Age)
+                             @Html.TextBoxFor(model => model.currentUser.user.Age, htmlAttributes: new {@class = "form-control", placeholder = "Age"})
+                         </div>
 
-                        </div>
-                        <!--Gender-->
-                        <div class="form-group">      
-                            <label for="menu1">Gender</label>   
-                            @Html.DropDownListFor(m => m.currentUser.user.Gender,     
-                                        selectList: new SelectList(items: Enum.GetValues(typeof(Gender))), 
-                                        optionLabel: "Select Gender",
-                                        htmlAttributes: new {  @class="dropdown"}
-                                            )
-                            
-                            
-
-                            <!--<div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Gender
-                                    <span class="caret"></span></button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Female</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Other</a></li>
-                                </ul>
-                            </div>-->
-                        </div>
-                        
-                        <!--DOB-->
-                        <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="password" class="form-control" id="age" placeholder="Age">
-                        </div>
-                        <!--<div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Check me out
-                            </label>
-                        </div>-->
-                        <button type="submit" class="btn btn-success">Update profile</button>
-                    </form>
+                         <button type="submit" class="btn btn-success">Update profile</button>
+                     
+                 }
                 </div>
             </div>
 

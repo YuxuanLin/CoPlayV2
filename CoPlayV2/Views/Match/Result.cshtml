@@ -8,13 +8,13 @@
 <!-- =========================
     RESULTS SECTION
 ============================== -->
-<div style="background-image: url(../../Content/Images/wos_sportcollage.jpg);position: page center; align-self:center">
-    <section id="blog" class="parallax-section">
+<div style="background-image: url(../../Content/Images/wos_sportcollage2.jpg); background-repeat: no-repeat; background-size: 100% 100%; position: page center; align-self: center; min-height: 705px;">
+      <section id="blog" class="parallax-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 text-center">
                     <h2>Results</h2>
-                    <p>Start Play Now!</p>
+                    <p>Here are your potential good opponent.</p>
                 </div>
 
                 <div id="search fact">
@@ -25,41 +25,41 @@
                 </div>
                 <hr />
                 <div class="wow fadeInUp col-md-12 col-sm-12">
-                    @foreach (var user in Model.users){
-                        <div class="blog-thumb" style="background-color:white">
-                            <table style="width:1100px">
-                                <tr>
-                                    <td style="width:200px; border-right: thin; border-right-color:lightgrey">
-                                    
-                                        <h3 class="blog-title" style="font-family:'Comic Sans MS'">@user.user.LastName @user.user.FirstName</h3>     
-                                    </td>
-                                    <td>
-                                    <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Age: @user.user.Age</h4>
-                                    <td/>
-                                    <td>
-                                        <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Gender:</h4>
-                                    </td>
-                                    <td>
-                                        <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Language:</h4>
-                                    </td>
-                                    <td>
-                                        <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Nationality:</h4>
-                                    </td>
-                                    <td>
+                    @using (Html.BeginForm(actionName: "Message", controllerName: "Match", method: FormMethod.Post))
+                    {
+                        foreach (var user in Model.users)
+                        {
+                            <div class="blog-thumb" style="background-color: white">
+                                <table style="width: 1100px">
+                                    <tr>
+                                        <td style="width: 200px; border-right: thin; border-right-color: lightgrey">
+                                            <h3 class="blog-title" style="font-family: 'Comic Sans MS'">@user.user.LastName @user.user.FirstName</h3>
+                                        </td>
+                                        <td>
+                                            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Age: @user.user.Age</h4>
+                                        <td/>
+                                        <td>
+                                            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Gender:</h4>
+                                        </td>
+                                        <td>
+                                            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Language:</h4>
+                                        </td>
+                                        <td>
+                                            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Religion:</h4>
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink( linkText: "Send", actionName: "SendMessage",
+                                                routeValues: new {                                         
+                                                    id = user.user.Id,
+                                                } 
+                                                )
 
-                                        <h4 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Religion:</h4>
-                                    </td>
-                                    <td>
-                                        <a href="#">Send Email</a>
-                                    </td>
-                                
-                                </tr>
-
-                            </table>
-
-                        </div>            
-                
-                    }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        }
+                    }                   
                 </div>
             </div>
         </div>
