@@ -51,15 +51,17 @@ namespace CoPlayV2.Controllers
             }
             var level = "";
             //Search ids from usersportperformance table
+
+            //Enum problem
             switch (model.Level.SportsLevel.ToString())
             {
-                case "Low":
+                case "low":
                     level = "low";
                     break;
-                case "Middle":
+                case "mid":
                     level = "mid";
                     break;
-                case "High":
+                case "high":
                     level = "high";
                     break;
             }

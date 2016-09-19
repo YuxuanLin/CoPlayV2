@@ -51,6 +51,19 @@ namespace CoPlayV2.Controllers
             }
         }
 
+        private SportLevelEnum parseLevelEnum(string str)
+        {
+            SportLevelEnum result;
+            try
+            {
+                result = (SportLevelEnum)Enum.Parse(typeof(SportLevelEnum), str.Trim());
+            }
+            catch (Exception ex)
+            {
+                result = SportLevelEnum.NotSelected;
+            }
+            return result;
+        }
 
         //DBcontext to tables except usertables
         private readonly CoPlayDBModel _db = new CoPlayDBModel();
@@ -61,8 +74,69 @@ namespace CoPlayV2.Controllers
             var userId = User.Identity.GetUserId();
             var user = await UserManager.FindByIdAsync(userId);
             var myUser = new MyUser {user = user};
-            resultModel.currentUser = myUser;
-            
+            resultModel.CurrentUser = myUser;
+            var performances = _db.UserSportPerformances.Where(s => s.UserID.Equals(userId));
+            foreach (var pf in performances)
+            {
+
+                switch (pf.Sport)
+                {
+                    case "badminton":
+                        resultModel.BadmintonPf = parseLevelEnum(pf.Level);
+                        break;
+                    case "TableTennis":
+                        resultModel.TabletennisPf = parseLevelEnum(pf.Level);
+                        break;
+                    case "TennisIndoor":
+                        resultModel.TennisIdpf = parseLevelEnum(pf.Level);
+                        break;
+                    case "FitnessGymnasiumWorkouts":
+                        resultModel.FitnessPf = parseLevelEnum(pf.Level);
+                        break;
+                    case "SquashRacquetball":
+                        resultModel.SquashPf = parseLevelEnum(pf.Level);
+                        break;
+                    case "Swimming"://
+                        resultModel.SwimmingPf = parseLevelEnum(pf.Level);
+                        break;
+                    case "TennisOutdoor"://
+                        resultModel.TennisOdpf = parseLevelEnum(pf.Level);
+                        break;
+                    default:
+                        Console.WriteLine("Sport type error: " + pf.Sport);
+                        break;
+                }
+            }
+            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.BadmintonPf))
+            //{
+            //    resultModel.BadmintonPf = SportLevelEnum.NotSelected;
+            //}
+            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.FitnessPf))
+            //{
+            //    resultModel.FitnessPf = SportLevelEnum.NotSelected;
+            //}
+            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.SquashPf))
+            //{
+            //    resultModel.SquashPf = SportLevelEnum.NotSelected;
+            //}
+            //if (SportLevelEnum. resultModel.SwimmingPf.ToString())
+            //{
+            //    resultModel.SwimmingPf = SportLevelEnum.NotSelected;
+            //}
+            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.TabletennisPf))
+            //{
+            //    resultModel.TabletennisPf = SportLevelEnum.NotSelected;
+            //}
+            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.TennisIdpf))
+            //{
+            //    resultModel.TennisIdpf = SportLevelEnum.NotSelected;
+            //}
+            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.TennisOdpf))
+            //{
+            //    resultModel.TennisOdpf = SportLevelEnum.NotSelected;
+            //}
+
+
             var messages = _db.InternalMessages.Where(s => s.SenderID.Equals(userId) || s.ReceiverID.Equals(userId));
             resultModel.sentMessages = new List<InternalMessage>();
             resultModel.receivedMessages = new List<InternalMessage>();
@@ -88,6 +162,14 @@ namespace CoPlayV2.Controllers
             return View();
         }
 
+
+        
+        public ActionResult UpdateUserSportLevel(MyManageIndexViewModels model)
+        {
+
+
+            return View();
+        }
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)

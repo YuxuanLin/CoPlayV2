@@ -20,12 +20,14 @@ namespace CoPlayV2.Models
 
     public enum SportLevelEnum
     {
-
-        Low,
-
-        Middle,
-
-        High
+        [Display(Name = "Not selected")]
+        NotSelected,
+        [Display(Name = "Starter")]
+        low,
+        [Display(Name = "Middle")]
+        mid,
+        [Display(Name = "Expert")]
+        high
     }
 
 
