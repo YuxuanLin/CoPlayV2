@@ -1,6 +1,4 @@
 ﻿
-$("#accordion").accordion();
-
 // Hover states on the static widgets
 $("#dialog-link, #icons li").hover(
 	function () {

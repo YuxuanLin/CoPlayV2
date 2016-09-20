@@ -28,7 +28,8 @@ namespace CoPlayV2
                       "~/Content/UIcss/animate.css",// Animation
                       "~/Content/UIcss/owl.theme.css", // Theme
                       "~/Content/UIcss/owl.carousel.css", // Theme
-                      "~/Content/UIcss/style.css"
+                      "~/Content/UIcss/style.css",
+                      "~/Content/UIcss/Fixfooter.css"//Fixed footer css
                         ).Include("~/Content/UIcss/font-awesome.min.css", new CssRewriteUrlTransform())
                         );
 
@@ -73,6 +74,16 @@ namespace CoPlayV2
 
             bundles.Add(new StyleBundle("~/bundles/ManageCss").Include(
                       "~/Content/UIcss/manageIndex.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/CLUBcss").Include(
+                      "~/Content/UIcss/Clubcss.css"));
+            bundles.Add(new StyleBundle("~/bundles/jqueryUIcss").Include(
+                     "~/Content/UIcss/jquery-ui.css"));
+            bundles.Add(new ScriptBundle("~/bundles/CLUBscripts").Include(
+               "~/Scripts/jquery.js",
+               "~/Scripts/jquery-ui.js",
+               "~/Scripts/Clubjs.js"
+            ));
         }
     }
 }

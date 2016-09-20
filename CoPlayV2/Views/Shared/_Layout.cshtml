@@ -32,6 +32,7 @@
                 <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "smoothScroll" })</li>
                 <li>@Html.ActionLink("Match", "Index", "Match", null, new {@class = "smoothScroll"})</li>
                 <li>@Html.ActionLink("Search stadium", "Index", "SportSpots", null, new {@class = "smoothScroll"})</li>
+                <li>@Html.ActionLink("Search clubs", "Index", "Club", null, new {@class = "smoothScroll"})</li>
                 <li>@Html.ActionLink("About", "About", "Home", null, new {@class = "smoothScroll"})</li>
                 @Html.Partial("_LoginPartial")
             </ul>
@@ -39,20 +40,34 @@
     </div>
 </nav>
 <!-- =========================Body SECTION============================== -->
+<div id="wrap">
+    <div id="main" class="clearfix">
+        @RenderBody()
+    </div>
+</div>
 
 
-@RenderBody()
 
 
 <!-- =========================FOOTER SECTION============================== -->
 <!--<footer style="background-image: url(../../Content/Images/footer-img.jpg)">
-        <div class="row">
-            <div class="clearfix"></div>
-            <div class="col-md-12 col-sm-12">
-                <p class="copyright-text">&copy; 2016 - Powered by Driver4T</p>
+    <div class="row">
+        <div class="clearfix"></div>
+        <div class="col-md-12 col-sm-12">
+            <p class="copyright-text">&copy; 2016 - Powered by Driver4T</p>
+        </div>
+    </div>
+</footer>-->
+  <div id="footer" style="background-image: url(../../Content/Images/footer-img.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <p class="copyright-text" style="color:#ffffff">Copyright &copy; 2016 - Driver4T</p>
+                </div>
             </div>
         </div>
-</footer>-->
+    </div>
+
 
 <!-- =========================SCRIPTS============================== -->
 

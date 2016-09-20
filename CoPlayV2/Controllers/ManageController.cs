@@ -107,36 +107,23 @@ namespace CoPlayV2.Controllers
                         break;
                 }
             }
-            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.BadmintonPf))
-            //{
-            //    resultModel.BadmintonPf = SportLevelEnum.NotSelected;
-            //}
-            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.FitnessPf))
-            //{
-            //    resultModel.FitnessPf = SportLevelEnum.NotSelected;
-            //}
-            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.SquashPf))
-            //{
-            //    resultModel.SquashPf = SportLevelEnum.NotSelected;
-            //}
-            //if (SportLevelEnum. resultModel.SwimmingPf.ToString())
-            //{
-            //    resultModel.SwimmingPf = SportLevelEnum.NotSelected;
-            //}
-            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.TabletennisPf))
-            //{
-            //    resultModel.TabletennisPf = SportLevelEnum.NotSelected;
-            //}
-            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.TennisIdpf))
-            //{
-            //    resultModel.TennisIdpf = SportLevelEnum.NotSelected;
-            //}
-            //if (Enum.IsDefined(typeof(SportLevelEnum), resultModel.TennisOdpf))
-            //{
-            //    resultModel.TennisOdpf = SportLevelEnum.NotSelected;
-            //}
+
+            return View("MyManageIndex",resultModel);
+        }
+
+        public ActionResult UpdateUserInfoTask(MyManageIndexViewModels model)
+        {
 
 
+            return View();
+        }
+
+        
+        public async Task<ActionResult> CheckMessages(MyManageIndexViewModels model)
+        {
+            var resultModel = new MyManageIndexViewModels();
+            var userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
             var messages = _db.InternalMessages.Where(s => s.SenderID.Equals(userId) || s.ReceiverID.Equals(userId));
             resultModel.sentMessages = new List<InternalMessage>();
             resultModel.receivedMessages = new List<InternalMessage>();
@@ -152,18 +139,10 @@ namespace CoPlayV2.Controllers
                 }
 
             }
-            return View("MyManageIndex",resultModel);
+
+            return View("CheckMessegsView",resultModel);
         }
 
-        public ActionResult UpdateUserInfoTask(MyManageIndexViewModels model)
-        {
-
-
-            return View();
-        }
-
-
-        
         public ActionResult UpdateUserSportLevel(MyManageIndexViewModels model)
         {
 

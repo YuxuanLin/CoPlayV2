@@ -20,17 +20,19 @@
           
                     <div class="form-group">         
                         <!--Drop down list for all sport names-->
+                        @Html.Label("Choose a sport")
                         <div id="select1" class="mainselection">   
-                            @Html.Label("Choose a sport") 
+                             
                             @Html.EnumDropDownListFor(model => model.Sports.SportsName,
                                     new {@class = "form-control"})
                          </div>
                     </div>
                     <div class="form-group">
                         <!--<h3>Choose a campus</h3>-->
+                         @Html.Label("Choose a campus") 
                         <div id="select2" class="mainselection">
                             <!--Drop down list for all campus-->
-                              @Html.Label("Choose a campus") 
+                             
                             @Html.EnumDropDownListFor(model => model.Campus,
                                 new {@class = "form-control"})
                         </div>
@@ -76,7 +78,9 @@
                     var mapOptions = {
                         zoom: 11,
                         center: Melbourne,
-                        mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+                        mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP,
+                        scrollwheel: false,
+                        disableDoubleClickZoom: true
                     };
 
                     // This makes the div with id "map_canvas" a google map

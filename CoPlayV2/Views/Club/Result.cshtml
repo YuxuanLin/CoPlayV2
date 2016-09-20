@@ -1,0 +1,36 @@
+﻿@using CoPlayV2.Extentions
+@model CoPlayV2.Models.ClubViewModels
+@{
+    ViewBag.Title = "Club";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( "#accordion" ).accordion({
+          heightStyle: "content"
+        });
+      } );
+    </script>
+}
+
+<div id="clubs-result-table" class="container">
+    <div id="accordion">
+        @foreach (var club in Model.ClubsList)
+        {
+            <h3>@club.Name</h3>
+            <div>
+                <p>@club.Name</p>
+                <p>@club.Description</p>
+                <a class="club-website" href="@club.Website">Click to visit @club.Name </a>
+            </div>
+        }
+    </div>
+ </div>
+@Styles.Render("~/bundles/CLUBcss")
+<!--@Styles.Render("~/bundles/CLUBcss")
+@Styles.Render("~/bundles/jqueryUIcss")
+@Scripts.Render("~/bundles/CLUBscripts")-->

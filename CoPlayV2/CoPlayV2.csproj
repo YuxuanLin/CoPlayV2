@@ -170,11 +170,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\SportSpotsController.cs" />
     <Compile Include="Extentions\DropdownListExtention.cs" />
+    <Compile Include="Extentions\SimpleHTMLLinkRender.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,8 +218,18 @@
     <Compile Include="Migrations\CoPlayDBModelDbContext\201609130625599_AddMessageTable.Designer.cs">
       <DependentUpon>201609130625599_AddMessageTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201609190643200_Add Club model.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201609190643200_Add Club model.Designer.cs">
+      <DependentUpon>201609190643200_Add Club model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201609191213553_Add Club model2.cs" />
+    <Compile Include="Migrations\CoPlayDBModelDbContext\201609191213553_Add Club model2.Designer.cs">
+      <DependentUpon>201609191213553_Add Club model2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\CoPlayDBModelDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ClubModel.cs" />
+    <Compile Include="Models\ClubViewModels.cs" />
     <Compile Include="Models\CoPlayDBModel.cs" />
     <Compile Include="Models\EnumHelpers.cs" />
     <Compile Include="Models\Event.cs" />
@@ -225,6 +237,7 @@
     <Compile Include="Models\InternalMessage.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MatchIndexViewModels.cs" />
+    <Compile Include="Models\MessageViewModels.cs" />
     <Compile Include="Models\MyManageIndexViewModels.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Rate.cs" />
@@ -273,6 +286,7 @@
     <Content Include="Content\Images\wos_sportcollage.jpg" />
     <Content Include="Content\Images\wos_sportcollage2.jpg" />
     <Content Include="Content\Images\yuxuan.jpeg" />
+    <Content Include="Content\UIcss\Fixfooter.css" />
     <Content Include="Content\UIcss\sportspotssearch.css" />
     <Content Include="Content\UIcss\animate.css" />
     <Content Include="Content\UIcss\bootstrap.min.css" />
@@ -399,11 +413,12 @@
     <Content Include="Views\Match\Result.cshtml" />
     <Content Include="Views\Account\LoginAll.cshtml" />
     <Content Include="Views\Manage\MyManageIndex.cshtml" />
+    <Content Include="Views\Club\Result.cshtml" />
+    <Content Include="Views\Manage\CheckMessegsView.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Match\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -442,6 +457,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201609130625599_AddMessageTable.resx">
       <DependentUpon>201609130625599_AddMessageTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201609190643200_Add Club model.resx">
+      <DependentUpon>201609190643200_Add Club model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201609191213553_Add Club model2.resx">
+      <DependentUpon>201609191213553_Add Club model2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,74 @@
+﻿
+@using CoPlayV2.Extentions
+@using CoPlayV2.Models
+@model CoPlayV2.Models.MyManageIndexViewModels
+
+@{
+    ViewBag.Title = "Manage Index";
+}
+@section scripts{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+        $( "#accordion" ).accordion({
+            collapsible: true
+            });
+        } );
+    </script>
+}
+<!--main container-->
+<div class="container">
+    <!--side bar and content in one row-->
+    <div id="firstRow" class="row">
+        <!--side bar nav-->
+        <div class="col-sm-3">
+            <!--for collapse-->
+            <div class="sidebar-nav">
+                <!--set style-->
+                <div class="navbar navbar-default" role="navigation">
+                    <!--nav head name-->
+                    <div class="navbar-header">
+                        <!--For collapse button in mobile-->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--nav name for mobile (visible in mobile)-->
+                        <span class="visible-xs navbar-brand">Personal Setting</span>
+                    </div>
+                    <!--nav contents-->
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Profile","MyIndex","Manage")</li>
+                            <li class="active">@Html.ActionLink("Messages","CheckMessages","Manage")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Setting content panel-->
+        <div class="col-sm-9">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Messages </div>
+
+                <div id="accordion">
+                    @foreach (var club in Model.receivedMessages)
+                    {
+                        <h3>@club.SenderID</h3>
+                        <div>
+                            <p>@club.Message</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@Styles.Render("~/bundles/ManageCss")

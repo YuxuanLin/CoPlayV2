@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "Manage Index";
 }
+
 <!--main container-->
 <div class="container">
     <!--side bar and content in one row-->
@@ -24,81 +25,142 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <!--nav name for mobile (visible in mobile)--> 
+                        <!--nav name for mobile (visible in mobile)-->
                         <span class="visible-xs navbar-brand">Personal Setting</span>
                     </div>
                     <!--nav contents-->
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Profile</a></li>
-                            <li><a href="#">Messeges <span class="badge">1,118</span></a></li>
+                        <ul class="nav navbar-nav">    
+                            <li class="active">@Html.ActionLink("Profile","MyIndex","Manage")</li>
+                            <li>@Html.ActionLink("Message","CheckMessages","Manage")</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!--Setting content panel-->
-        <div class="col-sm-9">
+        <div class="col-sm-6">
 
             <div class="panel panel-default">
                 <div class="panel-heading">Personal setting</div>
                 <div class="panel-body">
-                 @using (Html.BeginForm(actionName: "UpdateUserInfoTask", controllerName: "Manage", method: FormMethod.Post))
+                    @using (Html.BeginForm(actionName: "UpdateUserInfoTask", controllerName: "Manage", method: FormMethod.Post))
                  {
                      
                          <!--email-->
-                         <div class="form-group">
-                             @Html.LabelFor(m => m.currentUser.user.Email)
-                             @Html.TextBoxFor(model => model.currentUser.user.Email, new {@class = "form-control", placeholder = "Email"})
-                         </div>
-                         <!--username-->
-                         <div class="form-group">
-                             @Html.LabelFor(m => m.currentUser.user.UserName)
-                             @Html.TextBoxFor(model => model.currentUser.user.UserName, new {@class = "form-control", placeholder = "Username"})
-                         </div>
-                         <!--Lastname-->
-                         <div class="form-group">
-                             @Html.LabelFor(m => m.currentUser.user.LastName)
-                             @Html.TextBoxFor(model => model.currentUser.user.UserName, new {@class = "form-control", placeholder = "Lastname"})
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CurrentUser.user.Email)
+                             @Html.TextBoxFor(model => model.CurrentUser.user.Email, new {@class = "form-control", placeholder = "Email"})
+                    </div>
+                    <!--username-->
+                     <div class="form-group">
+                         
+                         @Html.LabelFor(m => m.CurrentUser.user.UserName)
+                         @Html.TextBoxFor(model => model.CurrentUser.user.UserName, new {@class = "form-control", placeholder = "Username"})
+                     </div>
+                    <!--Lastname-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CurrentUser.user.LastName)
+                             @Html.TextBoxFor(model => model.CurrentUser.user.UserName, new {@class = "form-control", placeholder = "Lastname"})
 
-                         </div>
-                         <!--Firstname-->
-                         <div class="form-group">
-                             @Html.LabelFor(m => m.currentUser.user.FirstName)
-                             @Html.TextBoxFor(model => model.currentUser.user.FirstName, htmlAttributes: new {@class = "form-control", placeholder = "FirstName"})
+                    </div>
+                    <!--Firstname-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CurrentUser.user.FirstName)
+                             @Html.TextBoxFor(model => model.CurrentUser.user.FirstName, htmlAttributes: new {@class = "form-control", placeholder = "FirstName"})
 
-                         </div>
-                         <!--Gender-->
-                         <div class="form-group">
-                             <!--<div class="col-xs-4"> -->
-                             @Html.LabelFor(m => m.currentUser.user.Gender)
-                             @Html.DropDownListFor(m => m.currentUser.user.Gender,
+                    </div>
+                    <!--Gender-->
+                    <div class="form-group">
+                        <div class="col-xs-4"> 
+                        @Html.LabelFor(m => m.CurrentUser.user.Gender)
+                             @Html.DropDownListFor(m => m.CurrentUser.user.Gender,
                                  selectList: new SelectList(items: Enum.GetValues(typeof(Gender))),
-                                 optionLabel: "Select Gender",
                                  htmlAttributes: new {@class = "form-control"})
-                             <!--</div>-->
+                             </div>
+                    </div>
+                    <!--DOB-->
+                     <div class="form-group ">
+                         <div class="col-xs-4">
+                             @Html.LabelFor(m => m.CurrentUser.user.Age)
+                             @Html.TextBoxFor(model => model.CurrentUser.user.Age, htmlAttributes: new {@class = "form-control", placeholder = "Age"})
                          </div>
-                         <!--DOB-->
-                         <div class="form-group">
-                             @Html.LabelFor(m => m.currentUser.user.Age)
-                             @Html.TextBoxFor(model => model.currentUser.user.Age, htmlAttributes: new {@class = "form-control", placeholder = "Age"})
-                         </div>
+                     </div>
 
-                         <button type="submit" class="btn btn-success">Update profile</button>
-                     
-                 }
+                    <button type="submit" class="btn btn-success">Update profile</button>
+
+                    }
                 </div>
             </div>
 
+            <!--Sport elvel setting panel-->
             <div class="panel panel-default">
                 <div class="panel-heading">Sport level setting</div>
-                <div class="panel-body">Panel Content
+                <div class="panel-body">
+                    @using (Html.BeginForm(actionName: "UpdateUserSportLevel", controllerName: "Manage", method: FormMethod.Post))
+                 {
+                     
+                    <!--Badminton-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BadmintonPf)
+                        @Html.DropDownListFor(m => m.BadmintonPf,
+                            selectList: new SelectList(items: Enum.GetValues(typeof(SportLevelEnum))),
+                            htmlAttributes: new {@class = "form-control"})
+                    </div>
+                    <!--Fitness-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FitnessPf)
+                        @Html.DropDownListFor(m => m.FitnessPf,
+                            selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                            htmlAttributes: new {@class = "form-control"})
+                    </div>
+                    <!--Squash-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SquashPf)
+                        @Html.DropDownListFor(m => m.SquashPf,
+                                selectList: new SelectList(items: Enum.GetValues(typeof(SportLevelEnum))),
+                                htmlAttributes: new {@class = "form-control"})
+                    </div>
+                     <!--Swimming-->
+                    <!--for test-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SwimmingPf)
+                        @Html.DropDownListFor(m => m.SwimmingPf,
+                                 selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                                 htmlAttributes: new {@class = "form-control"})
 
+                    </div>
+                    <!--Table Tennis-->
+                    <div class="form-group">
+                        <!--<div class="col-xs-4"> -->
+                        @Html.LabelFor(m => m.TabletennisPf)
+                        @Html.DropDownListFor(m => m.TabletennisPf,
+                                 selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                                 htmlAttributes: new {@class = "form-control"})
+                             <!--</div>-->
+                    </div>
+                     <!--Tennis indoor-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.TennisIdpf)
+                        @Html.DropDownListFor(m => m.TennisIdpf,
+                                 selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                                 htmlAttributes: new {@class = "form-control"})
+                    </div>
+                     <!--Tennis Outdoor-->
+                    <!--for test-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.TennisOdpf)
+                        @Html.DropDownListFor(m => m.TennisOdpf,
+                                selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                                htmlAttributes: new {@class = "form-control"})
+                    </div>
+                         <button type="submit" class="btn btn-success">Update profile</button>
+                    }
                 </div>
             </div>
 
-<!--            <div class="panel panel-success">
+            <!--            <div class="panel panel-success">
                 <div class="panel-heading">Panel with panel-success class</div>
                 <div class="panel-body">Panel Content</div>
             </div>
