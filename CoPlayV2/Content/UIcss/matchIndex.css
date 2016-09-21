@@ -58,3 +58,13 @@
     align-items: center center;
     height: 85vh;
 }
+
+.background-main-div {
+    align-self:center; 
+    background-image: url(../../Content/Images/monashclub.jpg);
+    background-repeat:no-repeat; 
+    background-size:100% 115%; 
+    position: page center; 
+    align-self: center;
+    min-height: 650px
+}

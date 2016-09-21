@@ -5,21 +5,17 @@
 }
 
 
-
-
-<div style="align-self:center; background-image: url(../../Content/Images/monashclub.jpg);background-repeat:no-repeat; background-size:100% 115%; position: page center; align-self: center;min-height: 650px">
-
-    <section id="search" class="parallax-section" align="center">
-        <div class="container" align="center">
-            <div class="row" align="center">
-
+<div class="background-main-div">
+    <section id="search" class="parallax-section">
+        <div class="container">
+            <div class="row">
                 <div class="text-center">
                     <h2>Search Clubs</h2>
                     <p>Club, Club, Club!</p>
                 </div>
                 <hr />
 
-                <div class="container">
+  
                    @using (Html.BeginForm("FindClubs", "Club", FormMethod.Post, new {@class = "form-inline"}))
                     {
                         <div class="text-center" align="center">
@@ -62,10 +58,9 @@
 
 
                         <button type="submit" class="button button1">Search</button>
-                    </div>
-                }
+                        </div>
+                    }
             </div>
-        </div>
         </div>
     </section>
 </div>
