@@ -9,7 +9,8 @@
 </head>
 
 
-<body  data-target=".navbar-collapse" data-offset="50">
+<body data-target=".navbar-collapse" data-offset="50">
+@Styles.Render("~/bundles/layout/css")
 <!-- =========================PRE LOADER============================== -->
 <div class="preloader">
     <div class="sk-spinner sk-spinner-pulse"></div>
@@ -24,12 +25,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button><!-- The left upper cornor of the website-->
-            @Html.ActionLink(" ","Index","Home", null, new{
-                style = "background: url('" + Url.Content("~/Content/Images/Coplay 1.png") + "') center; display:block; height:80px; width:150px;"})
+            @Html.ActionLink(" ", "Index", "Home", null, new
+            {
+                style = "background: url('" + Url.Content("~/Content/Images/Coplay 1.png") + "') center; display:block; height:80px; width:150px;"
+            })
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right main-navigation">
-                <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "smoothScroll" })</li>
+                <li>@Html.ActionLink("Home", "Index", "Home", null, new {@class = "smoothScroll"})</li>
                 <li>@Html.ActionLink("Match", "Index", "Match", null, new {@class = "smoothScroll"})</li>
                 <li>@Html.ActionLink("Search stadium", "Index", "SportSpots", null, new {@class = "smoothScroll"})</li>
                 <li>@Html.ActionLink("Search clubs", "Index", "Club", null, new {@class = "smoothScroll"})</li>
@@ -39,7 +42,9 @@
         </div>
     </div>
 </nav>
-<div class="row"><div id="coplay-start-point"></div></div>
+<div class="row">
+    <div id="coplay-start-point"></div>
+</div>
 <!-- =========================Body SECTION============================== -->
 <div id="wrap">
     <div id="main" class="clearfix">
@@ -59,20 +64,20 @@
         </div>
     </div>
 </footer>-->
-  <div id="footer" style="background-image: url(../../Content/Images/footer-img.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <p class="copyright-text" style="color:#ffffff">Copyright &copy; 2016 - Driver4T</p>
-                </div>
+<div id="footer" style="background-image: url(../../Content/Images/footer-img.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <p class="copyright-text" style="color: #ffffff">Copyright &copy; 2016 - Driver4T</p>
             </div>
         </div>
     </div>
+</div>
 
 
 <!-- =========================SCRIPTS============================== -->
 
-@Styles.Render("~/bundles/layout/css")
+
 @Scripts.Render("~/bundles/scripts")
 @Scripts.Render("~/bundles/modernizr")
 @RenderSection("scripts", required: false)
