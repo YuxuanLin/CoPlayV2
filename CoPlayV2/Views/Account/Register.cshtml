@@ -33,7 +33,9 @@
                 @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                   <label>A block of help text that breaks onto a new line and may extend beyond one line.</label>
                 </div>
+                 
             </div>
             <!------------------------------------ Confirmpassword ------------------------------------>
             <div class="form-group">
@@ -112,7 +114,8 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control"})
+                        <span id="helpBlock" class="help-block">Password must be consisted of at least one capital and one lower case letter, one number, one special character and at least 6 digits.</span>
                     </div>
                 </div>
                 <!------------------------------------ Confirmpassword ------------------------------------>
