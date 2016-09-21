@@ -22,8 +22,21 @@
                 }
             </div>
             <div class="form-group">
+                @{
+                    var sportTypes =  new SelectList(
+                        new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Badminton", Value = "Badminton"},
+                            new SelectListItem {Text = "Fitness/gymnasium", Value = "Fitness/gymnasium"},
+                            new SelectListItem {Text = "Racquetball/Squash", Value = "Racquetball/Squash"},
+                            new SelectListItem {Text = "Swimming", Value = "Swimming"},
+                            new SelectListItem {Text = "Table Tennis", Value = "Table Tennis"},
+                            new SelectListItem {Text = "Tennis", Value = "Tennis"},
+                        }, dataValueField: "Value", dataTextField: "Text");
                     @Html.LabelFor(model => model.SportType)
-                    @Html.DropDownListFor(m => m.SportType,  selectList: new SelectList(items: Enum.GetValues(typeof(SportTypesEnum))))         
+                    @Html.DropDownListFor(m => m.SportType, sportTypes)
+                }
+                
             </div>
 
             <button type="submit" class="btn btn-default">Search</button>
