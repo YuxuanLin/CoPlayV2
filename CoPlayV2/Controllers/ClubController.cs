@@ -30,7 +30,34 @@ namespace CoPlayV2.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var foundClubs = _db.ClubModels.Where(pf => pf.SportType.Equals(model.SportType.ToString())
+
+            string sportType = null;
+            switch (model.SportType)
+            {
+                case "Badminton":
+                    sportType = "Badminton";
+                    break;
+                case "FitnessGymnasiumWorkouts":
+                    sportType = "Fitness/gymnasium";
+                    break;
+                case "SquashRacquetball":
+                    sportType = "Racquetball/Squash";
+                    break;
+                case "Swimming":
+                    sportType = "Swimming";
+                    break;
+                case "TableTennis":
+                    sportType = "Table Tennis";
+                    break;
+                case "TennisIndoor":
+                    sportType = "Tennis(Indoor)";
+                    break;
+                case "TennisOutdoor":
+                    sportType = "Tennis(outdoor)";
+                    break;
+            }
+
+            var foundClubs = _db.ClubModels.Where(pf => pf.SportType.Equals(sportType)
                 && pf.Type.Equals(model.Type.ToString()))
                 ;
 
