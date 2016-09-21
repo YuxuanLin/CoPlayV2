@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.Entity.Validation;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -137,7 +139,7 @@ namespace CoPlayV2.Controllers
         //
         // GET: /Account/Register
         //[AllowAnonymous]
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -161,16 +163,88 @@ namespace CoPlayV2.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName
                 };
+
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    var badmintonPf = new UserSportPerformance
+                    {
+                        UserID = user.Id,
+                        Level = SportLevelEnum.NotSelected.ToString(),
+                        Sport = "badminton"
+                    };
+                    var fitnessPf = new UserSportPerformance
+                    {
+                        UserID = user.Id,
+                        Level = SportLevelEnum.NotSelected.ToString(),
+                        Sport = "FitnessGymnasiumWorkouts"
+                    };
+                    var squashPf = new UserSportPerformance
+                    {
+                        UserID = user.Id,
+                        Level = SportLevelEnum.NotSelected.ToString(),
+                        Sport = "SquashRacquetball"
+                    };
+                    var swimmingPf = new UserSportPerformance
+                    {
+                        UserID = user.Id,
+                        Level = SportLevelEnum.NotSelected.ToString(),
+                        Sport = "Swimming"
+                    };
+                    var tabletennisPf = new UserSportPerformance
+                    {
+                        UserID = user.Id,
+                        Level = SportLevelEnum.NotSelected.ToString(),
+                        Sport = "TableTennis"
+                    };
+                    var tennisindoorPf = new UserSportPerformance
+                    {
+                        UserID = user.Id,
+                        Level = SportLevelEnum.NotSelected.ToString(),
+                        Sport = "TennisIndoor"
+                    };
+                    var tennisoutdoorPf = new UserSportPerformance
+                    {
+                        UserID = user.Id,
+                        Level = SportLevelEnum.NotSelected.ToString(),
+                        Sport = "TennisOutdoor"
+                    };
+
+                    try
+                    {
+                        _db.UserSportPerformances.Add(badmintonPf);
+                        _db.UserSportPerformances.Add(fitnessPf);
+                        _db.UserSportPerformances.Add(squashPf);
+                        _db.UserSportPerformances.Add(swimmingPf);
+                        _db.UserSportPerformances.Add(tabletennisPf);
+                        _db.UserSportPerformances.Add(tennisindoorPf);
+                        _db.UserSportPerformances.Add(tennisoutdoorPf);
+
+                        _db.SaveChanges();
+    
+                    }
+                    catch (DbEntityValidationException e)
+                    {
+                        foreach (var eve in e.EntityValidationErrors)
+                        {
+                            Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                                eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                            foreach (var ve in eve.ValidationErrors)
+                            {
+                                Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                    ve.PropertyName, ve.ErrorMessage);
+                            }
+                        }
+                        throw;
+                    }
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -180,7 +254,7 @@ namespace CoPlayV2.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
+        private readonly CoPlayDBModel _db = new CoPlayDBModel();
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]

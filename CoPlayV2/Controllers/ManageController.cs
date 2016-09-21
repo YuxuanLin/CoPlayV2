@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -8,6 +12,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CoPlayV2.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CoPlayV2.Controllers
 {
@@ -107,15 +112,57 @@ namespace CoPlayV2.Controllers
                         break;
                 }
             }
-
-            return View("MyManageIndex",resultModel);
+            return View("MyManageIndex", resultModel);
         }
 
-        public ActionResult UpdateUserInfoTask(MyManageIndexViewModels model)
+        public async Task<ActionResult> UpdateUserInfoTask(MyManageIndexViewModels model)
         {
 
-
-            return View();
+            var userId = User.Identity.GetUserId();
+            var currentUser = await UserManager.FindByIdAsync(userId);//find
+            var apu  = (ApplicationUser) currentUser;
+            if (!model.CurrentUser.user.FirstName.Equals(currentUser.FirstName))//Modify Firstname
+            {
+                apu.FirstName = model.CurrentUser.user.FirstName;
+            }
+            if (!model.CurrentUser.user.Email.Equals(currentUser.Email))//Modify Email
+            {
+                apu.Email = model.CurrentUser.user.Email;
+            }
+            if (!model.CurrentUser.user.UserName.Equals(currentUser.UserName))//Modify Username
+            {
+                apu.UserName = model.CurrentUser.user.UserName;
+            }
+            if (!model.CurrentUser.user.LastName.Equals(currentUser.LastName))//Modify Lastname
+            {
+                apu.LastName = model.CurrentUser.user.LastName;
+            }
+            if (!model.CurrentUser.user.Gender.Equals(currentUser.Gender))//Modify Gender
+            {
+                apu.Gender = model.CurrentUser.user.Gender;
+            }
+            if (!model.CurrentUser.user.Age.Equals(currentUser.Age))//Modify Age
+            {
+                apu.Age = model.CurrentUser.user.Age;
+            }
+            try
+            {
+                var result = await UserManager.UpdateAsync(apu);
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                         validationError.PropertyName,
+                                         validationError.ErrorMessage);
+                    }
+                }
+            }
+            return RedirectToAction("MyIndex");
+            
         }
 
         
@@ -143,12 +190,66 @@ namespace CoPlayV2.Controllers
             return View("CheckMessegsView",resultModel);
         }
 
-        public ActionResult UpdateUserSportLevel(MyManageIndexViewModels model)
+        public async Task<ActionResult> UpdateUserSportLevel(MyManageIndexViewModels model)
         {
+            var userId = User.Identity.GetUserId();
+            var pfs = _db.UserSportPerformances.Where(s => s.UserID.Equals(userId));
+            SportLevelEnum? newPf = null;
+            
+            foreach (var pf in pfs)
+            {
+                switch (pf.Sport)
+                {
+                    case "badminton":
+                        newPf =  model.BadmintonPf;
+                        break;
+                    case "TableTennis":
+                        newPf = model.TabletennisPf;
+                        break;
+                    case "TennisIndoor":
+                        newPf = model.TennisIdpf;
+                        break;
+                    case "FitnessGymnasiumWorkouts":
+                        newPf = model.FitnessPf;
+                        break;
+                    case "SquashRacquetball":
+                        newPf = model.SquashPf;
+                        break;
+                    case "Swimming":
+                        newPf = model.SwimmingPf;
+                        break;
+                    case "TennisOutdoor":
+                        newPf = model.TennisOdpf;
+                        break;
+                    default:
+                        Console.WriteLine("Sport type error: " + pf.Sport);
+                        break;
+                }
+                if (newPf.HasValue)
+                {
+                    pf.Level = newPf.ToString();
+                    
+                }
+            }
 
+            try
+            {
 
-            return View();
+                _db.SaveChanges();
+            }
+            catch (System.Data.Entity.Core.EntityException dex)
+            {
+                //Log the error (uncomment dex variable name after DataException and add a line here to write a log.)
+                ModelState.AddModelError("",
+                    "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+
+            return RedirectToAction("MyIndex");
+
         }
+
+
+
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)

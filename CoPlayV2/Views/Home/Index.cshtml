@@ -1,6 +1,15 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+
+@section scripts{
+    <script type="text/javascript">
+        $(function() {
+            window.location = '#coplay-start-point';
+        });
+    </script>
+}
+
 <div class="container-fluid-full">
 <div style="background-image:url(); background-repeat:no-repeat;background-size:100% 100%">
     <section id="home" class="parallax-section">
@@ -16,9 +25,10 @@
                     @Html.ActionLink("Match an Opponent", "Index", "Match", null, new { @class = "wow fadeInUp smoothScroll btn btn-default" })
                 </div>
             </div>
-        </div>
+            
+         </div>
     </section>
-
+    
     <!--===============================
     TESTIMONY SECTION
     ===============================-->

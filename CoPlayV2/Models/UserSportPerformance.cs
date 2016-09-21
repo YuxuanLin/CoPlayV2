@@ -16,7 +16,7 @@ namespace CoPlayV2.Models
         public string UserID { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(30)]
         public string Level { get; set; }
 
         [Required]
