@@ -9,8 +9,8 @@ namespace CoPlayV2.Models
     public class MyManageIndexViewModels
     {
         public MyUser CurrentUser { get; set; }
-        public List<InternalMessage> sentMessages { get; set; }
-        public List<InternalMessage> receivedMessages { get; set; }
+        public List<MyMessage> sentMessages { get; set; }
+        public List<MyMessage> receivedMessages { get; set; }
 
         public List<UserSportPerformance> userPerformances { get; set; }
 
@@ -32,5 +32,14 @@ namespace CoPlayV2.Models
 
         [Display(Name = "Tennis indoor performance")]
         public SportLevelEnum TennisIdpf { get; set; }
+    }
+
+
+
+    public class MyMessage
+    {
+        public InternalMessage message { get; set; }
+        public ApplicationUser sender { get; set; }
+        public ApplicationUser receiver { get; set; }
     }
 }

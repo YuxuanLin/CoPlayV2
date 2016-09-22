@@ -171,18 +171,22 @@ namespace CoPlayV2.Controllers
             var resultModel = new MyManageIndexViewModels();
             var userId = User.Identity.GetUserId();
             var user = await UserManager.FindByIdAsync(userId);
+            //Get all messages sent to this user or sent by this user
             var messages = _db.InternalMessages.Where(s => s.SenderID.Equals(userId) || s.ReceiverID.Equals(userId));
-            resultModel.sentMessages = new List<InternalMessage>();
-            resultModel.receivedMessages = new List<InternalMessage>();
+            resultModel.sentMessages = new List<MyMessage>();
+            resultModel.receivedMessages = new List<MyMessage>();
             foreach (var msg in messages)
             {
+                // mails sent to this user
                 if (msg.ReceiverID.Equals(userId))
                 {
-                    resultModel.receivedMessages.Add(msg);
+                    var sender =  await UserManager.FindByIdAsync(msg.SenderID);
+                    resultModel.receivedMessages.Add(new MyMessage{ message = msg, sender = sender });
                 }
                 else if (msg.SenderID.Equals(userId))
-                {
-                    resultModel.sentMessages.Add(msg);
+                {//mails sent by this user
+                    var receiver = await UserManager.FindByIdAsync(msg.ReceiverID);
+                    resultModel.sentMessages.Add(new MyMessage { message = msg, receiver = receiver });
                 }
 
             }

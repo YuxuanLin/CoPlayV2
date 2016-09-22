@@ -60,9 +60,9 @@
                 <div id="accordion">
                     @foreach (var club in Model.receivedMessages)
                     {
-                        <h3>@club.SenderID</h3>
+                        <h3>From: @club.sender.FirstName @club.sender.LastName</h3>
                         <div>
-                            <p>@club.Message</p>
+                            <p>@club.message.Message</p>
                         </div>
                     }
                 </div>
