@@ -382,7 +382,7 @@ a {
    Newsletter section              
 -----------------------------------------*/
 #newsletter {
-    background: url('../images/newsletter-bg.jpg') 50% 0 repeat-y fixed;
+    background: url('/Content/images/newsletter-bg.jpg') 50% 0 repeat-y fixed;
     background-size: cover;
     background-position: center center;
     color: #ffffff;
