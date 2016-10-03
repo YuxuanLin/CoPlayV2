@@ -29,11 +29,24 @@
                   
                     <h3>Skill level: </h3>
                     <center>
-                        <div id="select2" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
-                            @Html.RadioButtonFor(model => model.Level.SportsLevel, "low") Beginner&nbsp;&nbsp;
-                            @Html.RadioButtonFor(model => model.Level.SportsLevel, "mid",new { @checked = true }) Medium &nbsp;&nbsp;
-                            @Html.RadioButtonFor(model => model.Level.SportsLevel, "high") Professional&nbsp;&nbsp;
-                        </div>
+ 
+                        @* choice button group *@
+                         <div class="form-group">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                    @Html.RadioButtonFor(model => model.Level.SportsLevel, "low")  
+                                    Starter
+                                </label>
+                                <label class="btn btn-primary">
+                                    @Html.RadioButtonFor(model => model.Level.SportsLevel, "mid", new {@checked = true}) 
+                                    Normal
+                                </label>
+                                <label class="btn btn-primary">
+                                    @Html.RadioButtonFor(model => model.Level.SportsLevel, "high") 
+                                    Furious
+                                </label>
+                            </div>
+                          </div>
                     </center>
                     <br />
                     <input id="Match" type="submit" value="Match" class="button button1" />
