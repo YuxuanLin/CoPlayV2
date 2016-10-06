@@ -48,7 +48,7 @@
                     @using (Html.BeginForm(actionName: "UpdateUserInfoTask", controllerName: "Manage", method: FormMethod.Post))
                  {
                      
-                         <!--email-->
+                    <!--email-->
                     <div class="form-group">
                         @Html.LabelFor(m => m.CurrentUser.user.Email)
                              @Html.TextBoxFor(model => model.CurrentUser.user.Email, new {@class = "form-control", placeholder = "Email"})
@@ -73,24 +73,31 @@
                     </div>
 
                     <!--Gender-->
-                    <div class="form-group">
-                        <div class="col-xs-4"> 
-                        @Html.LabelFor(m => m.CurrentUser.user.Gender)
+                     <div class="form-group">
+                         
+                             @Html.LabelFor(m => m.CurrentUser.user.Gender)
                              @Html.DropDownListFor(m => m.CurrentUser.user.Gender,
                                  selectList: new SelectList(items: Enum.GetValues(typeof(Gender))),
                                  htmlAttributes: new {@class = "form-control"})
-                             </div>
-                    </div>
-                    <!--DOB-->
-                     <div class="form-group ">
-                         <div class="col-xs-4">
-                             @Html.LabelFor(m => m.CurrentUser.user.Age)
-                             @Html.TextBoxFor(model => model.CurrentUser.user.Age, htmlAttributes: new {@class = "form-control", placeholder = "Age"})
-                         </div>
+                         
                      </div>
 
-                    <button type="submit" class="btn btn-success">Update details</button>
+                    <!--DOB-->
+                     <div class="form-group ">
+                         
+                             @Html.LabelFor(m => m.CurrentUser.user.Age)
+                             @Html.TextBoxFor(model => model.CurrentUser.user.Age, htmlAttributes: new {@class = "form-control", placeholder = "Age"})
+                         
+                     </div>
 
+                    <!--button-->
+                     <div class="form-group ">
+                          
+                        <button type="submit" class="btn btn-success">
+                            Update details
+                        </button>
+
+                     </div>
                     }
                 </div>
             </div>
