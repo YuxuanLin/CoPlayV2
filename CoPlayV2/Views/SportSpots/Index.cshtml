@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Styles.Render("~/bundles/search")
+@Styles.Render("~/bundles/sportSearch")
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc&callback=initMap" type="text/javascript"></script>
 
 <div style=" align-self:center; background-image:url(../../Content/Images/facility-background.jpg); background-repeat:no-repeat;background-size:100% 100%" >
@@ -16,35 +16,42 @@
         </div>
             
         @using (Html.BeginForm( "Search",  "SportSpots",  FormMethod.Post,new{ @class="form-inline"}))
-            {
-          
-                    <div class="form-group">         
-                        <!--Drop down list for all sport names-->
-                        @Html.Label("Choose a sport")
-                        <div id="select1" class="mainselection">   
-                             
-                            @Html.EnumDropDownListFor(model => model.Sports.SportsName,
-                                    new {@class = "form-control"})
-                         </div>
+        {
+            <div class="text-center" align="center">
+                   
+                    <!--Drop down list for all sport names-->
+                <h3>Choose a sport</h3>
+                <center>
+                    <div id="select1" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">    
+                        @Html.EnumDropDownListFor(model => model.Sports.SportsName,
+                            new {@class = "form-control"})
                     </div>
-                    <div class="form-group">
-                        <!--<h3>Choose a campus</h3>-->
-                         @Html.Label("Choose a campus") 
-                        <div id="select2" class="mainselection">
-                            <!--Drop down list for all campus-->
+                </center>
+                
+                <h3>Choose a campus</h3>
+                
+                <center>
+                    <div id="select2" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
+                        <!--Drop down list for all campus-->
                              
-                            @Html.EnumDropDownListFor(model => model.Campus,
-                                new {@class = "form-control"})
-                        </div>
-                        @Html.HiddenFor(model => model.lng)
-                        @Html.HiddenFor(model => model.lat)    
+                        @Html.EnumDropDownListFor(model => model.Campus,
+                            new {@class = "form-control"})
                     </div>
-                <div class="form-group">
-                        <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
-                </div>
-            }
+                    @Html.HiddenFor(model => model.lng)
+                    @Html.HiddenFor(model => model.lat)    
+
+                    
+                </center>
+                <br />
+                <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
+            </div>
+        }
     </div>
-    <center><strong style="color: crimson;font-size: 20px">@ViewBag.prompt</strong></center>
+    <center>
+        <strong style="color: crimson; font-size: 20px">
+            @ViewBag.prompt
+        </strong>
+    </center>
     <!-- This is the div that will contain the Google Map -->
     <section class="parallax-section">
         <div class="container">
@@ -88,49 +95,57 @@
                         console.log("Data not completed");
                     }
                     // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
-                    $.each(data, function (i, item) {
-                        var marker = new google.maps.Marker({
-                            'position': new google.maps.LatLng(item.Latitude, item.Longitude),//latitude, longitude
-                            'map': map,
-                            'title': item.FacilityName
-                        });
-                        // Make the marker-pin blue!
-                        //marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+                    $.each(data,
+                        function(i, item) {
+                            var marker = new google.maps.Marker({
+                                'position': new google.maps.LatLng(item.Latitude, item.Longitude), //latitude, longitude
+                                'map': map,
+                                'title': item.FacilityName
+                            });
+                            // Make the marker-pin blue!
+                            //marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
 
-                        // put in some information about each json object - in this case, the opening hours.
+                            // put in some information about each json object - in this case, the opening hours.
 
-                        var facilityName = (item.FacilityName != null) ? item.FacilityName : "No name yet." ;
-                        var location  =  ((item.StreetNo != null) ? item.StreetNo : "" ) + " " + 
-                                ((item.StreetName != null) ? item.StreetName : "") + " " +
-                                ((item.StreetType != null) ? item.StreetType : "") + " " + 
-                                ((item.SuburbTown != null) ? item.SuburbTown : "") + " " + 
-                                ((item.Postcode != null) ? item.Postcode : "");        
+                            var facilityName = (item.FacilityName != null) ? item.FacilityName : "No name yet.";
+                            var location = ((item.StreetNo != null) ? item.StreetNo : "") +
+                                " " +
+                                ((item.StreetName != null) ? item.StreetName : "") +
+                                " " +
+                                ((item.StreetType != null) ? item.StreetType : "") +
+                                " " +
+                                ((item.SuburbTown != null) ? item.SuburbTown : "") +
+                                " " +
+                                ((item.Postcode != null) ? item.Postcode : "");
 
-                        var fieldType =  ((item.fieldType != null) ? item.fieldType : "No record") ;
-                        var prefix = "<div class='infoDiv'>";
-                        var postfix = "</h4></div>";
+                            var fieldType = ((item.fieldType != null) ? item.fieldType : "No record");
+                            var prefix = "<div class='infoDiv'>";
+                            var postfix = "</h4></div>";
 
-                        var info = prefix + 
-                                " <h4>Facility Name: " +  facilityName + 
-                                "</h4><h4>Location: " + location +
-                                "</h4><h4>Field type: " + fieldType +
+                            var info = prefix +
+                                " <h4>Facility Name: " +
+                                facilityName +
+                                "</h4><h4>Location: " +
+                                location +
+                                "</h4><h4>Field type: " +
+                                fieldType +
                                 postfix;
 
-                        var infowindow = new google.maps.InfoWindow({
-                            content: info
-                        });
+                            var infowindow = new google.maps.InfoWindow({
+                                content: info
+                            });
 
-                        // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
-                        google.maps.event.addListener(marker, 'click', function () {
-                           
-                            infowindow.open(map, marker);
-                        });
-                        marker.setMap(map);
+                            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+                            google.maps.event.addListener(marker,
+                                'click',
+                                function() {
 
-                    })
+                                    infowindow.open(map, marker);
+                                });
+                            marker.setMap(map);
+
+                        });
                 }
-            </script>
-            <script>
 
                 function initMap() {
                     // Try HTML5 geolocation.
@@ -162,9 +177,6 @@
                                           'Error: Your browser doesn\'t support geolocation.');
                 }
             </script>
-            <!--<script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc&callback=initMap">
-            </script>-->
         </section>
     }
 </div>

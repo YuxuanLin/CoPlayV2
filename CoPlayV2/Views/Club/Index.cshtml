@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-@Styles.Render("~/bundles/matchIndexCss")
+@Styles.Render("~/bundles/searchClubIndex")
 <div class="background-main-div">
     <section id="search" class="parallax-section">
         <div class="container">
@@ -13,54 +13,52 @@
                     <h2>Search Clubs</h2>
                     <p>Club, Club, Club!</p>
                 </div>
+                
                 <hr />
+                @using (Html.BeginForm("FindClubs", "Club", FormMethod.Post, new {@class = "form-inline"}))
+                {
+                    <div class="text-center" align="center">
+                        <h3> Club type: </h3>
+                        <center>
 
-  
-                   @using (Html.BeginForm("FindClubs", "Club", FormMethod.Post, new {@class = "form-inline"}))
-                    {
-                        <div class="text-center" align="center">
-                            <h3> Club owner: </h3>
-                            <center>
+                            <div id="select1" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
+                                @{
+                                    var selectList = new SelectList(
+                                        new List<SelectListItem>
+                                        {
+                                            new SelectListItem {Text = "Public", Value = "Victoria"},
+                                            new SelectListItem {Text = "Monash University", Value = "Monash University"}
+                                        }, dataValueField: "Value", dataTextField: "Text");
 
-                                <div id="select1" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
-                                   @{
-                                        var selectList = new SelectList(
-                                            new List<SelectListItem>
-                                            {
-                                                new SelectListItem {Text = "Victoria", Value = "Victoria"},
-                                                new SelectListItem {Text = "Monash University", Value = "Monash University"}
-                                            }, dataValueField: "Value", dataTextField: "Text");
+                                    @Html.DropDownListFor(m => m.Type, selectList)
+                                }
+                            </div>
+                        </center>
 
-                                        @Html.DropDownListFor(m => m.Type, selectList)
-                                    }
-                                </div>
-                            </center>
-
-                            <h3>Sport Type: </h3>
-                            <center>
-                                <div id="select2" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
+                        <h3>Sport Type: </h3>
+                        <center>
+                            <div id="select2" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
                                 @{
                                     var sportTypes =  new SelectList(
                                         new List<SelectListItem>
                                         {
                                             new SelectListItem {Text = "Badminton", Value = "Badminton"},
-                                            new SelectListItem {Text = "Fitness/gymnasium", Value = "Fitness/gymnasium"},
-                                            new SelectListItem {Text = "Racquetball/Squash", Value = "Racquetball/Squash"},
+                                            new SelectListItem {Text = "Fitness / gymnasium", Value = "Fitness/gymnasium"},
+                                            new SelectListItem {Text = "Racquetball / Squash", Value = "Racquetball/Squash"},
                                             new SelectListItem {Text = "Swimming", Value = "Swimming"},
                                             new SelectListItem {Text = "Table Tennis", Value = "Table Tennis"},
-                                              new SelectListItem {Text = "Tennis", Value = "Tennis"},
+                                            new SelectListItem {Text = "Tennis", Value = "Tennis"},
                                         }, dataValueField: "Value", dataTextField: "Text");
                                     @Html.DropDownListFor(m => m.SportType, sportTypes)
                                 }
-                                </div>
-                            </center>
-                            <br />
-
-
+                            </div>
+                        </center>
+                        <br />
                         <button type="submit" class="button button1">Search</button>
-                        </div>
-                    }
+                    </div>
+                }
             </div>
         </div>
     </section>
 </div>
+

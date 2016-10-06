@@ -84,6 +84,15 @@ namespace CoPlayV2
                "~/Scripts/jquery-ui.js",
                "~/Scripts/Clubjs.js"
             ));
+            bundles.Add(new ScriptBundle("~/bundles/facilityscripts").Include(
+               "~/Scripts/facilityMap.js"
+            ));
+            bundles.Add(new StyleBundle("~/bundles/searchClubIndex").Include(
+                      "~/Content/UIcss/searchClubIndex.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/sportSearch").Include(
+                      "~/Content/UIcss/sportSearch.css"));
+            
         }
     }
 }

@@ -17,19 +17,19 @@ namespace CoPlayV2.Models
 
     public enum Campus
     {
-        [Display(Name = "City of Monash (clayton)")]
+        [Display(Name = "Clayton")]
         CityOfMonash_clayton_,
              
-        [Display(Name = "City of Glen Eira (Caulfield)")]
+        [Display(Name = "Caulfield")]
         CityOfGlenEira_Caulfield_,
 
-        [Display(Name = "City of Melbourne (Parkville)")]
+        [Display(Name = "Parkville")]
         CityOfMelbourne_Parkville_,
 
-        [Display(Name = "Shire of Mornington Peninsula (Peninsula)")]
+        [Display(Name = "Peninsula")]
         ShireOfMorningtonPeninsula_Peninsula_,
 
-        [Display(Name = "City of Casey (Berwick)")]
+        [Display(Name = "Berwick")]
         CityOfCasey_Berwick_
 
     }
