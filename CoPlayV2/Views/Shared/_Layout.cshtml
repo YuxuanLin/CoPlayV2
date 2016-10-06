@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@ViewBag.Title - CoPlay</title>
     <link rel="icon" href="@Url.Content("~/Content/Images/icon.png")"/>
-
+    @Styles.Render("~/bundles/layout/css")
 </head>
 
-
 <body data-target=".navbar-collapse" data-offset="50">
-@Styles.Render("~/bundles/layout/css")
+
 <!-- =========================PRE LOADER============================== -->
 <div class="preloader">
     <div class="sk-spinner sk-spinner-pulse"></div>
@@ -42,9 +41,11 @@
         </div>
     </div>
 </nav>
+
 <div class="row">
     <div id="coplay-start-point"></div>
 </div>
+
 <!-- =========================Body SECTION============================== -->
 <div id="wrap">
     <div id="main" class="clearfix">
@@ -52,18 +53,7 @@
     </div>
 </div>
 
-
-
-
 <!-- =========================FOOTER SECTION============================== -->
-<!--<footer style="background-image: url(../../Content/Images/footer-img.jpg)">
-    <div class="row">
-        <div class="clearfix"></div>
-        <div class="col-md-12 col-sm-12">
-            <p class="copyright-text">&copy; 2016 - Powered by Driver4T</p>
-        </div>
-    </div>
-</footer>-->
 <div id="footer" style="background-image: url(../../Content/Images/footer-img.jpg)">
     <div class="container">
         <div class="row">
@@ -76,10 +66,9 @@
 
 
 <!-- =========================SCRIPTS============================== -->
-
-
 @Scripts.Render("~/bundles/scripts")
 @Scripts.Render("~/bundles/modernizr")
 @RenderSection("scripts", required: false)
+
 </body>
 </html>

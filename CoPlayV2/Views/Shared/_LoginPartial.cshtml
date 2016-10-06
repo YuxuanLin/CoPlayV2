@@ -3,24 +3,23 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "form-inside nav navbar-nav navbar-right main-navigation " }))
     {
-    @Html.AntiForgeryToken()
-    
+        @Html.AntiForgeryToken()
         <li>
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                 @User.Identity.GetUserName()
                 <span class="caret"></span>
             </a>
             
-			<ul class="dropdown-menu">
+		    <ul class="dropdown-menu">
                 <li>@Html.ActionLink(linkText: "Account", actionName: "MyIndex", controllerName: "Manage", routeValues: null, htmlAttributes: new { title = "Manage",@class = "actionButton" })
                 </li>
-				<li><a class="actionButton" href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
-			</ul>
+			    <li><a class="actionButton" href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+		    </ul>
         </li>
     }
 }
 else
 {
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" , @class = "smoothScroll" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" , @class = "smoothScroll"})</li>
+    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" , @class = "smoothScroll" })</li>
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" , @class = "smoothScroll"})</li>
 }
