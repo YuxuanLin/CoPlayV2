@@ -112,30 +112,30 @@
                     <!--Badminton-->
                     <div class="form-group">
                         @Html.LabelFor(m => m.BadmintonPf)
-                        @Html.DropDownListFor(m => m.BadmintonPf,
-                            selectList: new SelectList(items: Enum.GetValues(typeof(SportLevelEnum))),
+                        @Html.EnumDropDownListFor(m => m.BadmintonPf,
+                            null,
                             htmlAttributes: new {@class = "form-control"})
                     </div>
                     <!--Fitness-->
                     <div class="form-group">
                         @Html.LabelFor(m => m.FitnessPf)
-                        @Html.DropDownListFor(m => m.FitnessPf,
-                            selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                        @Html.EnumDropDownListFor(m => m.FitnessPf,
+                            null,
                             htmlAttributes: new {@class = "form-control"})
                     </div>
                     <!--Squash-->
                     <div class="form-group">
                         @Html.LabelFor(m => m.SquashPf)
-                        @Html.DropDownListFor(m => m.SquashPf,
-                                selectList: new SelectList(items: Enum.GetValues(typeof(SportLevelEnum))),
+                        @Html.EnumDropDownListFor(m => m.SquashPf,
+                                null,
                                 htmlAttributes: new {@class = "form-control"})
                     </div>
                      <!--Swimming-->
                     <!--for test-->
                     <div class="form-group">
                         @Html.LabelFor(m => m.SwimmingPf)
-                        @Html.DropDownListFor(m => m.SwimmingPf,
-                                 selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                        @Html.EnumDropDownListFor(m => m.SwimmingPf,
+                                 null,
                                  htmlAttributes: new {@class = "form-control"})
 
                     </div>
@@ -143,46 +143,30 @@
                     <div class="form-group">
                         <!--<div class="col-xs-4"> -->
                         @Html.LabelFor(m => m.TabletennisPf)
-                        @Html.DropDownListFor(m => m.TabletennisPf,
-                                 selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
-                                 htmlAttributes: new {@class = "form-control"})
+                        @Html.EnumDropDownListFor(m => m.TabletennisPf,
+                                 null,
+                                htmlAttributes: new {@class = "form-control"})
                              <!--</div>-->
                     </div>
                      <!--Tennis indoor-->
                     <div class="form-group">
                         @Html.LabelFor(m => m.TennisIdpf)
-                        @Html.DropDownListFor(m => m.TennisIdpf,
-                                 selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                        @Html.EnumDropDownListFor(m => m.TennisIdpf,
+                                 null,
                                  htmlAttributes: new {@class = "form-control"})
                     </div>
                      <!--Tennis Outdoor-->
                     <!--for test-->
                     <div class="form-group">
                         @Html.LabelFor(m => m.TennisOdpf)
-                        @Html.DropDownListFor(m => m.TennisOdpf,
-                                selectList: new SelectList(items: Enum.GetNames(typeof(SportLevelEnum))),
+                        @Html.EnumDropDownListFor(m => m.TennisOdpf,
+                                null,
                                 htmlAttributes: new {@class = "form-control"})
                     </div>
                          <button type="submit" class="btn btn-success">Update levels</button>
                     }
                 </div>
             </div>
-
-            <!--            <div class="panel panel-success">
-                <div class="panel-heading">Panel with panel-success class</div>
-                <div class="panel-body">Panel Content</div>
-            </div>
-
-            <div class="panel panel-info">
-                <div class="panel-heading">Panel with panel-info class</div>
-                <div class="panel-body">Panel Content</div>
-            </div>
-
-            <div class="panel panel-warning">
-                <div class="panel-heading">Panel with panel-warning class</div>
-                <div class="panel-body">Panel Content</div>
-            </div>-->
-
         </div>
     </div>
 </div>

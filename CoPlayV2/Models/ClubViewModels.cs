@@ -12,7 +12,6 @@ namespace CoPlayV2.Models
 
         public string Type { get; set; }
 
-
         public List<ClubModel> ClubsList { get; set; }
 
     }
