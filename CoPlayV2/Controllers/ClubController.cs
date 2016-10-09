@@ -20,7 +20,7 @@ namespace CoPlayV2.Controllers
 
         private CoPlayDBModel _db = new CoPlayDBModel();
 
-        [Authorize]
+      
         public ActionResult FindClubs(ClubViewModels model)
         {
             var resultModel = new ClubViewModels();

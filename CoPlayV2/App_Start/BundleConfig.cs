@@ -57,7 +57,7 @@ namespace CoPlayV2
             bundles.Add(new StyleBundle("~/bundles/search").Include(
                         "~/Content/UIcss/sportspotssearch.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/aboutus").Include(
+            bundles.Add(new StyleBundle("~/bundles/aboutus").Include(
                         "~/Content/aboutus.css"));
 
             bundles.Add(new StyleBundle("~/bundles/MATCHcss").Include(

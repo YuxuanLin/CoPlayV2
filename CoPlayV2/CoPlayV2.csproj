@@ -263,6 +263,7 @@
     <Content Include="Content\aboutus.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\aboutusBG.jpg" />
     <Content Include="Content\Images\blog-author.jpg" />
     <Content Include="Content\Images\blog-header-bg.jpg" />
     <Content Include="Content\Images\blog-thumb.jpg" />

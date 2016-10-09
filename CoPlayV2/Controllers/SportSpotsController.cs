@@ -15,7 +15,7 @@ namespace CoPlayV2.Controllers
         private CoPlayDBModel db = new CoPlayDBModel();
         
         // GET: SportSpots/Search
-        [Authorize]
+        
         public ActionResult Search(SportSearchViewModels model)
         {
             if (model == null)
@@ -89,7 +89,7 @@ namespace CoPlayV2.Controllers
 
 
         // GET: SportSpots
-        [Authorize]
+        
         public ActionResult Index()
         {
             return View("Index");
