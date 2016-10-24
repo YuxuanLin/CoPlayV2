@@ -35,10 +35,10 @@ namespace CoPlayV2.Controllers
                     case "CityOfGlenEira_Caulfield_":
                         suburbs = new string[] { "Bentleigh", "BentleighEast", "Caulfield", "CaulfieldEast", "CaulfieldNorth", "CaulfieldSouth", "Carnegie", "Elsternwick", "GlenHuntly", "McKinnon", "Murrumbeena", "Ormond" };
                         break;
-                    case "CityOfMelbourne_Parkville_":
+                    case "CityOfMelbourne_Peninsula_":
                         suburbs = new string[] { "Berwick", "Clyde", "ClydeNorth", "Cranbourne", "CranbourneEast", "CranbourneNorth", "CranbourneSouth", "Doveton", "EndeavourHills", "Eumemmerring", "Hallam", "HamptonPark", "Harkaway", "JunctionVillage", "Lynbrook", "NarreWarren", "NarreWarrenNorth", "NarreWarrenSouth", "Pearcedale", "Tooradin", "Warneet" };
                         break;
-                    case "ShireOfMorningtonPeninsula_Peninsula_":
+                    case "ShireOfMorningtonPeninsula_Parkville_":
                         suburbs = new string[] { "Carlton", "Jolimont", "Flemington", "Kensington", "Melbourne", "NorthMelbourne", "PortMelbourne", "Parkville", "Southbank", "SouthYarra", "WestMelbourne" };
                         break;
                     case "CityOfCasey_Berwick_":

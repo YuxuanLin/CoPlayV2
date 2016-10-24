@@ -19,17 +19,20 @@
 }
 
 <div id="clubs-result-table" class="container">
-    <div id="accordion">
+
+     <div id="accordion">
+                 
         @foreach (var club in Model.ClubsList)
         {
             <h3>@club.Name</h3>
             <div>
                 <p>@club.Name</p>
                 <p>@club.Description</p>
-                <a class="club-website" target = "_blank" href="@club.Website">Click to visit @club.Name </a>
-                 
+                <a class="club-website" target="_blank" href="@club.Website">Click to visit @club.Name </a>
+
             </div>
         }
+       
     </div>
  </div>
 

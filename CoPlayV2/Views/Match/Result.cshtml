@@ -39,7 +39,7 @@
                                             <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Age: @user.user.Age</h4>
                                         <td/>
                                         <td>
-                                            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Gender:</h4>
+                                            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Gender:@user.user.Gender</h4>
                                         </td>
                      <!--                   <td>
                                             <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Language:</h4>
@@ -47,7 +47,7 @@
                                         <td>
                                             <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Religion:</h4>
                                         </td>-->
-                                        <td>
+                                        <td style="font-size: large; font-weight:bold ">
                                             @Html.ActionLink( linkText: "Request a match", actionName: "SendMessage",
                                                 routeValues: new {                          
                                                     id = user.user.Id,

@@ -6,12 +6,20 @@
 
 
 <div class="container">
+    <div class="jumbotron">
+    <h1>Hello, @Html.DisplayFor(m => m.receiver.user.LastName)!</h1>
+    
+    
+   
+
     @using (Html.BeginForm(actionName: "CreateMessage", controllerName: "Match", method: FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        @Html.DisplayFor(m => m.receiver.user.LastName)
+        
         @Html.HiddenFor(model => model.receiver.user.Id)
-        @Html.TextAreaFor(m => m.message, new { @class = "form-control" })  
-        <input id="send" type="submit" value="Send" class="btn btn-primary" />
+        <p>@Html.TextAreaFor(m => m.message, new {@class = "form-control",rows="5"})</p>
+
+        <p><input id="send" type="submit" value="Send" class="btn btn-primary btn-lg"/></p>
     }
+    </div>
 </div>

@@ -247,7 +247,7 @@ a {
   background: #ff7171;
   border:thin;
   border-color:lightgrey;
-  border-radius: 0px;
+  border-radius: 9px 9px 9px 9px;
   color: #f0f0f0;
   font-size: 20px;
   font-weight: bold;
@@ -444,7 +444,7 @@ a {
 }
 
 #blog .blog-thumb:hover {
-  background: url('../images/blog-thumb.jpg');
+  background: url('/Content/Images/blog-thumb.jpg');
    -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;

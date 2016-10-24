@@ -51,8 +51,8 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center center;
-    -webkit-align-items: center center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     -ms-flex-align: center;
     text-align: center;
     align-items: center center;
@@ -61,10 +61,13 @@
 
 .background-main-div {
     align-self:center; 
-    background-image: url(../../Content/Images/monashclub.jpg);
+    background-image: url(../../Content/Images/facility-background.jpg);
     background-repeat:no-repeat; 
     background-size:100% 115%; 
     position: page center; 
     align-self: center;
-    min-height: 650px
+    min-height: 650px;
+     -webkit-box-align: center;
+     -webkit-align-items: center;
+     -webkit-background-size: cover;
 }

@@ -420,7 +420,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SportSpots\Index.cshtml" />
-    <Content Include="Views\Match\Index.cshtml" />
     <Content Include="Views\Match\MessageIndex.cshtml" />
     <Content Include="Views\Match\Result.cshtml" />
     <Content Include="Views\Account\LoginAll.cshtml" />
@@ -428,6 +427,7 @@
     <Content Include="Views\Club\Result.cshtml" />
     <Content Include="Views\Manage\CheckMessegsView.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

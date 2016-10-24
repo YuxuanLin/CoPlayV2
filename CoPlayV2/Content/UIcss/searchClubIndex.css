@@ -66,5 +66,8 @@
     background-size:100% 115%; 
     position: page center; 
     align-self: center;
-    min-height: 650px
+    min-height: 650px;
+     -webkit-box-align: center;
+     -webkit-align-items: center;
+     -webkit-background-size: cover;
 }
