@@ -20,18 +20,15 @@ function Initialize() {
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     map.addListener('click', function () {
         map.setZoom(8);
-        map.setCenter(marker.getPosition());
+        if (typeof marker !== 'undefined') {
+            map.setCenter(marker.getPosition());
+        }
     });
     // you can either make up a JSON list server side, or call it from a controller using JSONResult
     try {
         var res = $('#myHiddenVar').val();
         var data = JSON.parse(res);//get data from controller
-    }
-    catch (err) {
-        console.log("Data not completed");
-    }
-    // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
-    $.each(data,
+        $.each(data,
         function (i, item) {
             var marker = new google.maps.Marker({
                 'position': new google.maps.LatLng(item.Latitude, item.Longitude), //latitude, longitude
@@ -80,7 +77,14 @@ function Initialize() {
                 });
             marker.setMap(map);
 
-        });
+        }
+    );
+    }
+    catch (err) {
+        console.log("Data not completed");
+    }
+    // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+    
 }
 
 function initMap() {

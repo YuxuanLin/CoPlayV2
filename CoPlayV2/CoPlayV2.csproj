@@ -355,6 +355,7 @@
     <Content Include="Content\fonts\Raleway-SemiBoldItalic.ttf" />
     <Content Include="Content\fonts\Raleway-Thin.ttf" />
     <Content Include="Content\fonts\Raleway-ThinItalic.ttf" />
+    <None Include="Properties\PublishProfiles\CoPlayV2 - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\CoPlayV2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\Clubjs.js" />
@@ -482,6 +483,9 @@
     <EmbeddedResource Include="Migrations\CoPlayDBModelDbContext\201609210438445_EditLevelLength1.resx">
       <DependentUpon>201609210438445_EditLevelLength1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

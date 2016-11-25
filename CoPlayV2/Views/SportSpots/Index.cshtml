@@ -4,10 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Styles.Render("~/bundles/sportSearch")
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc&callback=initMap" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAACEYfjelzNIkQ13RhtCxZleiENx0_4Jc" type="text/javascript"></script>
 
 <div class="background-main-div">
-    <div class="container" align="center">
+    <div class="container">
         <div class="text-center">
             <h2>Search Facility</h2>
             <p>Let's Play Here!</p>
@@ -16,46 +16,47 @@
         <input type="hidden" value="@ViewBag.result" id="myHiddenVar" />
         @using (Html.BeginForm("Search", "SportSpots", FormMethod.Post, new { @class = "form-inline" }))
         {
-            <div class="text-center" align="center">
+        <div class="text-center">
 
-                <!--Drop down list for all sport names-->
-                <h3>Choose a sport</h3>
-                <center>
-                    <div id="select1" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
-                        @Html.EnumDropDownListFor(model => model.Sports.SportsName,
-                            new { @class = "form-control" })
-                    </div>
-                </center>
-
-                <h3>Choose a campus</h3>
-
-                <center>
-                    <div id="select2" class="mainselection" style="position:relative; align-self:center; align-items:center;font-size: 20px; font-weight: bold;">
-                        <!--Drop down list for all campus-->
-
-                        @Html.EnumDropDownListFor(model => model.Campus,
-                            new { @class = "form-control" })
-                    </div>
-                    @Html.HiddenFor(model => model.lng)
-                    @Html.HiddenFor(model => model.lat)
-
-
-                </center>
-                <br />
-                <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
+            <!--Drop down list for all sport names-->
+            <h3>Choose a sport</h3>
+            <div class="wrap-center">
+                <div id="select1" class="mainselection">
+                    @Html.EnumDropDownListFor(model => model.Sports.SportsName,
+                        new { @class = "form-control" })
+                </div>
             </div>
+
+            <h3>Choose a campus</h3>
+            <div id="select2" class="mainselection" >
+                <!--Drop down list for all campus-->
+                @Html.EnumDropDownListFor(model => model.Campus,
+                    new { @class = "form-control" })
+            </div>
+
+            @Html.HiddenFor(model => model.lng)
+            @Html.HiddenFor(model => model.lat)
+
+            <input id="SubmitSuburb" type="submit" value="Search facilities" class="button button1" />
+
+            @{
+                if (string.IsNullOrEmpty(((string)ViewBag.prompt)))
+                {
+                    <h3></h3>
+                }
+                else
+                {
+                    <h3><span class="label label-warning" id="error-prompt-content">There is no sport facilities in chosen campus.</span></h3>
+                }
+            }
+        </div>
         }
     </div>
-    <center>
-        <strong style="color: crimson; font-size: 20px">
-            @ViewBag.prompt
-        </strong>
-    </center>
-    <!-- This is the div that will contain the Google Map -->
 
+    <!-- This is the div that will contain the Google Map -->
     <div class="container">
         <div class="row">
-            <div id="center-wrap">
+            <div class="wrap-center">
                 <div id="map_canvas"></div>
             </div>
         </div>
