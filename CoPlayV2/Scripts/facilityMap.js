@@ -24,7 +24,8 @@ function Initialize() {
     });
     // you can either make up a JSON list server side, or call it from a controller using JSONResult
     try {
-        var data = JSON.parse('@Html.Raw(ViewBag.result)');//get data from controller
+        var res = $('#myHiddenVar').val();
+        var data = JSON.parse(res);//get data from controller
     }
     catch (err) {
         console.log("Data not completed");
