@@ -62,7 +62,7 @@ namespace CoPlayV2.Models
         public bool RememberMe { get; set; }
 
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name="Username")]
         public string Username { get; set; }
     }
 

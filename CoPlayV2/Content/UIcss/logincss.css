@@ -11,3 +11,23 @@
 .form-inside {
     padding-left: 15px;
 }
+#login-panel-wrap {
+        margin: 0 auto;
+    padding-top: 20px;
+    background-image: url('../Images/Contact-Football-072015-3838.jpg');
+}
+
+#jb {
+    margin: 0 auto;
+    width: 50%;
+    background: bisque;
+}
+
+h1 {
+    letter-spacing: 0px;
+}
+
+.jumbotron {
+    background:bisque !important
+}
+

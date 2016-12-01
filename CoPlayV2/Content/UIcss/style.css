@@ -831,11 +831,12 @@ footer .col-md-5 div {
 }
 
 footer h4 {
-  margin-top: 0px;
+    margin-top: 0px;
 }
 
 footer .copyright-text {
-  text-align: center;
+    text-align: center;
+    color: #ffffff;
 }
 
 .copyright-text a {
