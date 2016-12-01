@@ -92,7 +92,9 @@ namespace CoPlayV2
 
             bundles.Add(new StyleBundle("~/bundles/sportSearch").Include(
                       "~/Content/UIcss/sportSearch.css"));
-            
+
+            bundles.Add(new StyleBundle("~/bundles/sportSearch").Include(
+          "~/Content/UIcss/sportSearch.css"));
         }
     }
 }
