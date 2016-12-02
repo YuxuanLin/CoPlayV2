@@ -21,21 +21,25 @@
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <!--This part darws a button used to expand collapsed content in mobile view-->
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
+
             <!-- The left upper cornor of the website-->
-            @Html.ActionLink(" ", "Index", "Home", null, new{@class = "logo-button"})
+            @*@Html.ActionLink(" ", "Index", "Home", null, new {@class = "navbar-brand logo-button" })*@
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                <img src="/Content/Images/Coplay-logo.png" title="CoPlay" alt="COPLAY" />
+            </a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right main-navigation">
   
-                <li>@Html.ActionLink("Match", "Index", "Match", null, new {@class = "smoothScroll"})</li>
-                <li>@Html.ActionLink("Facility", "Index", "SportSpots", null, new {@class = "smoothScroll"})</li>
-                <li>@Html.ActionLink("Clubs", "Index", "Club", null, new {@class = "smoothScroll"})</li>
-                <li>@Html.ActionLink("About", "About", "Home", null, new {@class = "smoothScroll"})</li>
+                <li>@Html.ActionLink("Match", "Index", "Match", null, new {@class = ""})</li>
+                <li>@Html.ActionLink("Facility", "Index", "SportSpots", null, new {@class = ""})</li>
+                <li>@Html.ActionLink("Clubs", "Index", "Club", null, new {@class = ""})</li>
+                <li>@Html.ActionLink("About", "About", "Home", null, new {@class = ""})</li>
                 @Html.Partial("_LoginPartial")
             </ul>
         </div>

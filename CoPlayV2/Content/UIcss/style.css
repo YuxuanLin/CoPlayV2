@@ -213,10 +213,11 @@ a {
 }
 
 .logo-button {
-    background: url("~/Content/Images/Coplay-logo.png")  center; 
-    display:block; 
+    background: url("/Content/Images/Coplay-logo.png")  center; 
+    /*display:block; 
     height:54px; 
-    width:100px;
+    width:100px;*/
+
 }
 
 /*---------------------------------------
