@@ -34,7 +34,7 @@
                     @Html.PasswordFor(m => m.Password, new {@class = "form-control", placeholder = Html.DisplayNameFor(n => n.Password)})
                     @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
 
-                    <div class="checkbox">
+                    <div class="checkbox" id="checkbox-cus">
                         @Html.CheckBoxFor(m => m.RememberMe)
                         @Html.LabelFor(m => m.RememberMe)
                     </div>

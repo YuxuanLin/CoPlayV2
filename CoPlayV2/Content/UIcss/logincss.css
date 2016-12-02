@@ -25,7 +25,12 @@
 
 h1 {
     letter-spacing: 0px;
-    text-align: center; 
+    text-align: center;
+    color: aliceblue;
+}
+
+#checkbox-cus {
+    color: aliceblue;
 }
 
 .jumbotron {
@@ -79,7 +84,7 @@ h1 {
 #wrap-bg {
     width: 100%;
     align-self:center; 
-    background-image: url(../../Content/Images/facility-background.jpg);
+    background-image: url(../../Content/Images/Contact-Football-072015-3838.jpg);
     background-repeat:no-repeat; 
     background-size:100%;  
     align-self: center;
