@@ -86,12 +86,11 @@
     background-image: url(../../Content/Images/facility-background.jpg);
     background-repeat:no-repeat; 
     background-size:100% 115%; 
-    position: page center; 
     align-self: center;
     min-height: 650px;
-     -webkit-box-align: center;
-     -webkit-align-items: center;
-     -webkit-background-size: cover;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -webkit-background-size: cover;
 }
 
 .wrap-center {
