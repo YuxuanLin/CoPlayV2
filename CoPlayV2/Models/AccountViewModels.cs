@@ -48,10 +48,10 @@ namespace CoPlayV2.Models
 
     public class LoginViewModel
     {
-        //[Required]
-        //[Display(Name = "Email")]
-        //[EmailAddress]
-        //public string Email { get; set; }
+        [Required]
+        [Display(Name = "Email")]
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -61,9 +61,9 @@ namespace CoPlayV2.Models
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
 
-        [Required]
-        [Display(Name="Username")]
-        public string Username { get; set; }
+        //[Required]
+        //[Display(Name="Username")]
+        //public string Username { get; set; }
     }
 
     public class RegisterViewModel

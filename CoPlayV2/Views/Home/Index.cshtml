@@ -11,62 +11,66 @@
 }
 
 
-<div style="background-image:url(); background-repeat:no-repeat;background-size:100% 100%">
-    <section id="home" class="parallax-section">
-        <div class="container">
-            <div class="row">
 
-                <div class="col-md-offset-1 col-md-10 col-sm-12">
+<section id="home" class="parallax-section">
+    <div class="container">
 
-                    <h1 class="wow fadeInUp Raleway-extrabold" data-wow-delay="1.6s">CoPlay</h1>
+        <div class="row">
 
-                    <h2 class="wow bounceIn Raleway-semibolditalic" data-wow-delay="0.9s">Find your opponent here!</h2>
-
-                    @Html.ActionLink("Match an Opponent", "Index", "Match", null, new { @class = "wow fadeInUp smoothScroll btn btn-default" })
+            <div class="col-md-offset-1 col-md-10 col-sm-12">
+                <div class="first-line">
+                    <p id="slogon1" class="wow fadeInUp Raleway-extrabold" data-wow-delay="1.6s">CoPlay</p>
                 </div>
-            </div>
-            
-         </div>
-    </section>
-    
-    <!--===============================
-    TESTIMONY SECTION
-    ===============================-->
-    <section id="testimonial" class="parallax-section">
-        <div class="container">
-            <div class="row">
-
-                <!-- Testimonial Owl Carousel section
-                ================================================== -->
-                <div id="owl-testimonial" class="owl-carousel">
-
-                    <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
-                        <i class="fa fa-quote-left"></i>
-                        <h3>I found a best sports mate here.</h3>
-                        <h4>Sandar ( Monash University Student )</h4>
-                    </div>
-
-                    <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
-                        <i class="fa fa-quote-left"></i>
-                        <h3>Yes! We had pretty beautiful time to play tennis together. Guys hope you have good time here.</h3>
-                        <h4>James Job ( Social Assistant )</h4>
-                    </div>
-
-                    <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
-                        <i class="fa fa-quote-left"></i>
-                        <h3>My classmates also like this website, especially the matching function. Clubs searching function is useful.</h3>
-                        <h4>Mark Otto ( New Squash player )</h4>
-                    </div>
-
-                    <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
-                        <i class="fa fa-quote-left"></i>
-                        <h3>Are you a beginner of tennis? badminton? or swimming? come and play together</h3>
-                        <h4>David Moore ( Monash University student)</h4>
-                    </div>
-
+                
+                <div class="second-line">
+                    <p class="wow bounceIn Raleway-semibolditalic" data-wow-delay="0.9s">Find your opponent here!</p>
                 </div>
-
+                
+                @Html.ActionLink("Match Opponents", "Index", "Match", null, new { @class = "wow fadeInUp smoothScroll btn btn-default" })
             </div>
         </div>
-    </section>
-</div>
+
+    </div>
+</section>
+    
+<!--===============================
+TESTIMONY SECTION
+===============================-->
+<section id="testimonial" class="parallax-section">
+    <div class="container">
+        <div class="row">
+
+            <!-- Testimonial Owl Carousel section
+            ================================================== -->
+            <div id="owl-testimonial" class="owl-carousel">
+
+                <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+                    <i class="fa fa-quote-left"></i>
+                    <h3>I found a best sports mate here.</h3>
+                    <h4>Sandar ( Monash University Student )</h4>
+                </div>
+
+                <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+                    <i class="fa fa-quote-left"></i>
+                    <h3>Yes! We had pretty beautiful time to play tennis together. Guys hope you have good time here.</h3>
+                    <h4>James Job ( Social Assistant )</h4>
+                </div>
+
+                <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+                    <i class="fa fa-quote-left"></i>
+                    <h3>My classmates also like this website, especially the matching function. Clubs searching function is useful.</h3>
+                    <h4>Mark Otto ( New Squash player )</h4>
+                </div>
+
+                <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+                    <i class="fa fa-quote-left"></i>
+                    <h3>Are you a beginner of tennis? badminton? or swimming? come and play together</h3>
+                    <h4>David Moore ( Monash University student)</h4>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+

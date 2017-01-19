@@ -11,6 +11,10 @@ height:400px
     background-color: white;
 }
 
+.background-main-div {
+    flex: 1;
+}
+
 #map_canvas img {
     max-width: none;
     -webkit-align-items: center;

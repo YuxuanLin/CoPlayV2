@@ -4,12 +4,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@ViewBag.Title - CoPlay</title>
-    <link rel="icon" href="@Url.Content("~/Content/Images/icon.png")"/>
+    <link rel="icon" href="@Url.Content("~/Content/Images/icon.png")"/>  @*Icon on the left up cornor*@
     @Styles.Render("~/bundles/layout/css")
     @Scripts.Render("~/bundles/scripts")
 </head>
 
-<body>
+<body class="flex-container">
 
 <!-- =========================PRE LOADER============================== -->
 <div class="preloader">
@@ -19,6 +19,9 @@
 <!-- =========================NAVIGATION SECTION============================== -->
 <nav class="navbar navbar-default " role="navigation">
     <div class="container">
+        <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+            <img src="/Content/Images/Coplay-logo.png" title="CoPlay" alt="COPLAY" />
+        </a>
         <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <!--This part darws a button used to expand collapsed content in mobile view-->
@@ -29,13 +32,11 @@
 
             <!-- The left upper cornor of the website-->
             @*@Html.ActionLink(" ", "Index", "Home", null, new {@class = "navbar-brand logo-button" })*@
-            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                <img src="/Content/Images/Coplay-logo.png" title="CoPlay" alt="COPLAY" />
-            </a>
+
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right main-navigation">
-  
+
                 <li>@Html.ActionLink("Match", "Index", "Match", null, new {@class = ""})</li>
                 <li>@Html.ActionLink("Facility", "Index", "SportSpots", null, new {@class = ""})</li>
                 <li>@Html.ActionLink("Clubs", "Index", "Club", null, new {@class = ""})</li>
@@ -45,20 +46,19 @@
         </div>
     </div>
 </nav>
-
+    
+@*This is the anchor of index*@
 <div class="row">
     <div id="coplay-start-point"></div>
 </div>
 
 <!-- =========================Body SECTION============================== -->
-<div id="wrap">
-    <div id="main" class="clearfix">
+<div id="Site-content">
         @RenderBody()
-    </div>
 </div>
 
 <!-- =========================FOOTER SECTION============================== -->
-<div id="footer">
+<footer>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-</div>
+</footer>
 
 
 <!-- =========================SCRIPTS============================== -->

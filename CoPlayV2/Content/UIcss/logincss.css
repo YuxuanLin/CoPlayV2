@@ -1,21 +1,37 @@
-﻿.padding {
+﻿body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#Site-content {
+    flex: 1;
+    display: flex;
+}
+
+
+.padding {
 	padding-left: 2cm;
 }
 .paddingTitle {
     padding-left: 4cm;
 }
 .paddingMobile {
-	    margin: auto;
-        width: 60%;
+	margin: auto;
+    width: 60%;
 }
 .form-inside {
     padding-left: 15px;
 }
 #login-panel-wrap {
-        margin: 0 auto;
+    margin: 0 auto;
     padding-top: 20px;
-    background-image: url('../Images/Contact-Football-072015-3838.jpg');
+    background: url(/Content/Images/Login-Page-Background.jpg) no-repeat center center fixed;
+    width: 100%;
+    background-size: cover;
+    align-items: stretch;
 }
+
 
 #jb {
     margin: 0 auto;
@@ -64,4 +80,14 @@ h1 {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.form-signin-heading {
+    color: aliceblue;
+    text-align: center;
+}
+
+.checkbox-style {
+    color: aliceblue;
+    font-size: 18px;
 }

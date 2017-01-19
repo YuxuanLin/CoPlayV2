@@ -81,6 +81,7 @@
 }
 
 .background-main-div {
+    flex: 1;
     align-self:center; 
     background-image: url(../../Content/Images/facility-background.jpg);
     background-repeat:no-repeat; 
