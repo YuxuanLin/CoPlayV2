@@ -41,10 +41,12 @@ namespace CoPlayV2.Controllers
 
                 resultModel.ClubsList.Add(club);
             }
-
-
+            
             return View("Result",resultModel);
         }
 
+        
     }
+
+    
 }

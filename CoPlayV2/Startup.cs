@@ -11,4 +11,5 @@ namespace CoPlayV2
             ConfigureAuth(app);
         }
     }
+
 }

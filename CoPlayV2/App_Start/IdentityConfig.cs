@@ -32,6 +32,27 @@ namespace CoPlayV2
         }
     }
 
+    public class CustomPasswordValidator : PasswordValidator
+    {
+        public int RequireMaxLength { get; set; }
+
+        public override async Task<IdentityResult> ValidateAsync(string item)
+        {
+            IdentityResult result = await base.ValidateAsync(item);
+
+            var errors = result.Errors.ToList();
+
+            if (string.IsNullOrEmpty(item) || item.Length > RequireMaxLength)
+            {
+                errors.Add(string.Format("Password length can't exceed {0}", RequireMaxLength));
+            }
+
+            return await Task.FromResult(errors.Count() == 0
+             ? IdentityResult.Success
+             : IdentityResult.Failed(errors.ToArray()));
+        }
+    }
+
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
@@ -51,13 +72,14 @@ namespace CoPlayV2
             };
 
             // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
+            manager.PasswordValidator = new CustomPasswordValidator
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequiredLength = 4,
+                RequireNonLetterOrDigit = false,
                 RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireLowercase = false,
+                RequireUppercase = false,
+                RequireMaxLength = 10
             };
 
             // Configure user lockout defaults
